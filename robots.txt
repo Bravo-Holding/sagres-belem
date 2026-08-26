@@ -59,5 +59,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# [PENDENTE] Sitemap depende do domínio, ainda não definido.
-# Sitemap: https://SEU-DOMINIO/sitemap.xml
+Sitemap: https://ebravoholding.com/clients/sagres-belem/sitemap.xml

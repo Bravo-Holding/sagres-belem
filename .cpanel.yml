@@ -1,12 +1,21 @@
 ---
 # Deploy: cPanel Git Version Control roda este arquivo no "Deploy HEAD Commit".
-# CRÍTICO: liste TODOS os assets no cp, INCLUSIVE imagens (og-image, fotos).
+# CRÍTICO: liste TODOS os assets no cp, INCLUSIVE imagens.
 # O que não estiver aqui não vai pra produção.
 # $HOME evita expor o usuário cPanel no repo público.
 deployment:
   tasks:
-    - export DEPLOYPATH="$HOME/«dominio»/«path»/v1/"   # [PENDENTE] domínio e path
+    - export DEPLOYPATH=$HOME/ebravoholding.com/clients/sagres-belem
     - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -R index.html style.css robots.txt llms.txt img $DEPLOYPATH
-    # adicione aqui outros assets usados pela página, ex.: fotos .jpg/.png
-    # [PENDENTE] sitemap.xml entra aqui quando o domínio existir
+    - /bin/cp index.html $DEPLOYPATH/index.html
+    - /bin/cp style.css $DEPLOYPATH/style.css
+    - /bin/cp robots.txt $DEPLOYPATH/robots.txt
+    - /bin/cp llms.txt $DEPLOYPATH/llms.txt
+    - /bin/cp sitemap.xml $DEPLOYPATH/sitemap.xml
+    - /bin/mkdir -p $DEPLOYPATH/img
+    - /bin/cp img/logo-sagres.png $DEPLOYPATH/img/logo-sagres.png
+    - /bin/cp img/pernil.jpg $DEPLOYPATH/img/pernil.jpg
+    - /bin/cp img/fachada.jpg $DEPLOYPATH/img/fachada.jpg
+    - /bin/cp img/qr-avaliar.svg $DEPLOYPATH/img/qr-avaliar.svg
+    # [PENDENTE] og-image.jpg 1200x630 quando a Sagres mandar a foto em alta:
+    # - /bin/cp og-image.jpg $DEPLOYPATH/og-image.jpg
