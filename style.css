@@ -1,0 +1,1405 @@
+/* ============================================================
+   CSS NÃO-CRÍTICO — seções abaixo do fold.
+   O crítico (tokens, reset, container, btn, hero, sticky) está
+   inline no <head> do index.html. Não consolidar (mantém FCP baixo).
+   As próximas fatias adicionam aqui o CSS de cada seção.
+   ============================================================ */
+
+/* ===== Título e corpo de seção (base compartilhada) ===== */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  margin-bottom: .75rem;
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  color: var(--color-ink-mid);
+  margin-bottom: 2rem;
+}
+
+.section-body {
+  font-size: 1.05rem;
+  color: var(--color-ink-mid);
+  line-height: 1.75;
+}
+
+.section-body p + p {
+  margin-top: 1rem;
+}
+
+/* ===== Prova (faixa bordô logo abaixo do hero) =====
+   O hero é creme, então a faixa vai de bordô cheio: é o corte de contraste
+   mais forte disponível na paleta e separa hero de cardápio sem borda extra.
+   Dourado no número: 4,5:1 sobre o bordô, passa AA.
+   NOTA: fundo, cor e bordas douradas de #prova, mais o list-style: none da
+   .prova-grid, vivem no CSS crítico inline do index.html (a faixa entra na
+   dobra em 1280x800). Não duplicar aqui. */
+#prova {
+  padding-block: 2rem;
+}
+
+.prova-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 1rem;
+}
+
+.prova-item {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  text-align: center;
+  position: relative;
+}
+
+.prova-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1.05;
+  color: var(--color-gold);
+}
+
+.prova-label {
+  font-size: .9rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, .92);
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  #prova {
+    padding-block: 2.5rem;
+  }
+
+  .prova-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  /* Filete dourado entre as colunas, dentro do gap */
+  .prova-item+.prova-item::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    top: .25rem;
+    bottom: .25rem;
+    width: 1px;
+    background: rgba(201, 162, 39, .45);
+  }
+}
+
+/* ============================================================
+   CARDÁPIO
+   Peça mais consultada da página. Tudo aqui é decidido pela
+   legibilidade em 390px; a decoração entra depois, se sobrar espaço.
+   Acordeão em <details>/<summary> nativo: acessível de graça,
+   funciona sem JS e permite mais de um bloco aberto ao mesmo tempo.
+   ============================================================ */
+
+.cardapio-head {
+  margin-bottom: 2rem;
+}
+
+.cardapio-head .rule-gold {
+  margin-bottom: 1rem;
+}
+
+.cardapio-head .section-lead {
+  margin-bottom: 0;
+}
+
+.cardapio-blocos {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+/* ----- Bloco (categoria) ----- */
+.cbloco {
+  border: 1px solid rgba(122, 18, 24, .16);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.cbloco[open] {
+  box-shadow: var(--shadow-card);
+}
+
+/* Marcador nativo removido nos dois motores; o chevron é o indicador */
+.cbloco-sum {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 56px;
+  padding: .9rem 1.1rem;
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+  transition: background var(--transition), color var(--transition);
+}
+
+.cbloco-sum::-webkit-details-marker {
+  display: none;
+}
+
+.cbloco-sum::marker {
+  content: "";
+}
+
+.cbloco-sum:hover {
+  background: #F0E6D5;
+}
+
+.cbloco-nome {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 3.6vw, 1.4rem);
+  line-height: 1.2;
+  color: inherit;
+}
+
+.cbloco-meta {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-shrink: 0;
+}
+
+.cbloco-count {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--color-ink-mid);
+  white-space: nowrap;
+}
+
+.cbloco-chevron {
+  transition: transform var(--transition);
+}
+
+.cbloco[open] .cbloco-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cbloco-chevron {
+    transition: none;
+  }
+}
+
+/* Filete dourado separando cabeçalho e conteúdo quando aberto */
+.cbloco-corpo {
+  border-top: 3px solid var(--color-gold);
+  padding: .25rem 1.1rem 1rem;
+}
+
+/* ----- Itens ----- */
+.item-lista {
+  list-style: none;
+}
+
+.item {
+  padding-block: 1rem;
+  border-bottom: 1px solid rgba(26, 20, 18, .10);
+}
+
+.item:last-child {
+  border-bottom: 0;
+  padding-bottom: .25rem;
+}
+
+.item-texto {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  min-width: 0;
+}
+
+.item-nome {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--color-ink);
+  letter-spacing: .01em;
+}
+
+.item-desc {
+  font-size: .9rem;
+  line-height: 1.45;
+  color: var(--color-ink-mid);
+}
+
+/* Preço único (sanduíches metro e bebidas): nome à esquerda, valor à direita */
+.item:not(.item--pizza) {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.item-preco {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ----- Pizzas: três medidas -----
+   Nada de tabela com rolagem lateral. Cada medida é uma coluna com
+   o rótulo em cima do valor, dentro de uma faixa creme que amarra as
+   três como um bloco só. Em 390px sobram ~100px por coluna. */
+.medidas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: .75rem;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.medidas li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .1rem;
+  padding: .5rem .25rem;
+  text-align: center;
+}
+
+.medidas li+li {
+  border-left: 1px solid rgba(122, 18, 24, .18);
+}
+
+.medida-rot {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-ink-mid);
+  line-height: 1.2;
+}
+
+.medida-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* ----- Blocos por quilo (peça 2) -----
+   Estes cinco blocos têm coluna PREÇO/KG na origem, mas alguns itens fogem
+   do quilo (/UND, /INTEIRO). O aviso resolve as duas coisas de uma vez:
+   repete o texto da própria Sagres sobre reajuste e explica a unidade,
+   antes de o cliente ler a primeira linha da lista. */
+.kg-aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  margin: .9rem 0 1rem;
+  padding: .7rem .85rem;
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: .85rem;
+  line-height: 1.45;
+  color: var(--color-ink-mid);
+  text-wrap: pretty;
+}
+
+.kg-aviso strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.kg-aviso-ico {
+  flex-shrink: 0;
+  margin-top: .1rem;
+  color: var(--color-gold);
+}
+
+/* Cabeçalho de colunas: o preço só faz sentido com a unidade à vista */
+.kg-cab {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid rgba(122, 18, 24, .22);
+}
+
+.kg-cab-rot {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-ink-mid);
+  line-height: 1.2;
+}
+
+/* Sem descrição nestes itens: a linha fica mais curta e o respiro cai um pouco */
+.cbloco-corpo--kg .item {
+  padding-block: .85rem;
+}
+
+/* Numeral tabular alinha a coluna de preço na vertical, que é como o cliente
+   varre uma lista de 18 frios. O corpo cai um ponto porque aqui o preço pode
+   chegar a "R$190,00/INTEIRO" e precisa caber ao lado do nome em 390px. */
+.cbloco-corpo--kg .item-preco {
+  font-size: .98rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .cbloco-sum {
+    padding: 1.05rem 1.5rem;
+  }
+
+  .cbloco-corpo {
+    padding: .25rem 1.5rem 1.25rem;
+  }
+
+  .item-nome {
+    font-size: 1.05rem;
+  }
+
+  /* No desktop a pizza vira linha: texto à esquerda, as três medidas
+     em largura fixa à direita, alinhadas coluna a coluna entre os itens. */
+  .item--pizza {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .item--pizza .item-texto {
+    flex: 1 1 auto;
+  }
+
+  .medidas {
+    margin-top: 0;
+    flex: 0 0 auto;
+    width: 330px;
+  }
+}
+
+/* ============================================================
+   PEDIDO — o formulário. Âncora de conversão da página.
+   Fundo creme na seção e cartão branco por cima: separa o formulário
+   do cardápio (branco) sem borda extra e dá a ele o peso de destino.
+   Tudo dimensionado em 390px: alvo de toque 48px+, input em 16.8px
+   (abaixo de 16px o iOS dá zoom ao focar e desloca a página).
+   ============================================================ */
+
+#pedido {
+  background: var(--color-bg-alt);
+}
+
+/* .campo é flex; sem isto o atributo hidden não esconde nada */
+[hidden] {
+  display: none !important;
+}
+
+.pedido-head {
+  margin-bottom: 1.5rem;
+}
+
+.pedido-head .rule-gold {
+  margin-bottom: 1rem;
+}
+
+.pedido-head .section-lead {
+  margin-bottom: 0;
+}
+
+/* Filete bordô no topo: mesma lógica do filete dourado do cardápio,
+   marca o bloco como peça principal sem precisar de moldura pesada. */
+.pedido-card {
+  background: var(--color-white);
+  border: 1px solid rgba(122, 18, 24, .16);
+  border-top: 4px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+/* ----- Avisos (antes de qualquer input) -----
+   Creme com filete dourado, igual ao aviso do cardápio, para o cliente
+   reconhecer o padrão. O mínimo de R$ 80,00 é a informação que mais
+   volta como atrito no atendimento: ela lê antes de digitar. */
+.pedido-avisos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pedido-aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  padding: .7rem .85rem;
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: .92rem;
+  line-height: 1.45;
+  color: var(--color-ink-mid);
+  text-wrap: pretty;
+}
+
+.pedido-aviso strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.pedido-aviso-ico {
+  flex-shrink: 0;
+  margin-top: .1rem;
+  color: var(--color-accent);
+}
+
+/* ----- Campos ----- */
+.campos,
+.campos-delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  border: 0;
+  min-width: 0;
+}
+
+.campo-rot {
+  font-size: .93rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-ink);
+  padding: 0;
+}
+
+.campo-req {
+  color: var(--color-accent);
+}
+
+.campo-hint {
+  font-size: .82rem;
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+
+.campo-input {
+  width: 100%;
+  min-height: 48px;
+  padding: .7rem .9rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--color-ink);
+  background: var(--color-white);
+  border: 1.5px solid rgba(26, 20, 18, .24);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.campo-input:hover {
+  border-color: rgba(122, 18, 24, .5);
+}
+
+.campo-input:focus {
+  border-color: var(--color-accent);
+}
+
+.campo-area {
+  min-height: 132px;
+  resize: vertical;
+}
+
+/* Select nativo, só com a seta redesenhada: o menu do sistema é o que
+   melhor funciona no celular, então não vira componente custom. */
+.campo-select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2.6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%237A1218' d='M1.4.6 6 5.2 10.6.6 12 2 6 8 0 2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .95rem center;
+  background-size: .7rem;
+}
+
+.campo-select:invalid {
+  color: var(--color-ink-muted);
+}
+
+/* Erro: cor + texto + aria-invalid. Cor nunca sozinha. */
+.campo-erro {
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-accent);
+}
+
+.campo-input[aria-invalid="true"] {
+  border-color: var(--color-accent);
+  background: #FDF6F5;
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+/* ----- Delivery ou retirada -----
+   O radio nativo fica visível de propósito: o estado sobrevive mesmo
+   onde :has() não pegar, e o acento herda a cor da marca. */
+.radio-grupo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .6rem;
+  margin-top: .15rem;
+}
+
+.radio-op {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  min-height: 52px;
+  padding: .6rem .75rem;
+  font-weight: 700;
+  font-size: 1rem;
+  background: var(--color-white);
+  border: 1.5px solid rgba(26, 20, 18, .24);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+
+.radio-op:hover {
+  border-color: rgba(122, 18, 24, .5);
+}
+
+.radio-op input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+/* Só troca cor e borda: nada de scale, que empurraria o campo vizinho */
+.radio-op:has(input:checked) {
+  border-color: var(--color-accent);
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+.radio-op:has(input:focus-visible) {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ----- Envio ----- */
+.pedido-envio {
+  margin-top: 1.75rem;
+}
+
+.pedido-envio .btn svg {
+  flex-shrink: 0;
+}
+
+.pedido-micro {
+  margin-top: .75rem;
+  text-align: center;
+  font-size: .85rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+  text-wrap: pretty;
+}
+
+.pedido-fallback {
+  margin-top: 1rem;
+  padding: .8rem .9rem;
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: .9rem;
+  line-height: 1.55;
+  color: var(--color-ink-mid);
+}
+
+.pedido-fallback a {
+  color: var(--color-accent);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  .pedido-card {
+    padding: 2rem;
+  }
+
+  .pedido-avisos {
+    flex-direction: row;
+    gap: .75rem;
+  }
+
+  .pedido-aviso {
+    flex: 1 1 0;
+  }
+
+  .campo-rot {
+    font-size: 1rem;
+  }
+
+  /* Telefone e bairro são curtos: em telas largas não precisam da linha inteira */
+  .campo--meio {
+    max-width: 340px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .campo-input,
+  .radio-op {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   DEPOIMENTOS
+   Vem depois do formulário (creme), então a seção fica branca:
+   o corte de fundo já separa os dois blocos sem borda extra.
+   Cartão branco com filete dourado no topo, mesmo vocabulário
+   do .cbloco e do .pedido-card.
+   ============================================================ */
+
+/* Sprite fora do fluxo: existe só para o <use> das estrelas */
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.depo-head {
+  margin-bottom: 2rem;
+}
+
+.depo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.depo-card {
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  background: var(--color-white);
+  border: 1px solid rgba(122, 18, 24, .16);
+  border-top: 3px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+/* ----- Estrelas -----
+   O grupo leva role="img" + aria-label, e cada SVG é aria-hidden:
+   o leitor anuncia "5 de 5 estrelas" uma vez, não "estrela" cinco vezes.
+   Dourado puro sobre branco dá 2,4:1 e reprova o 3:1 de contraste de forma
+   da WCAG 1.4.11. O contorno bordô resolve sem mexer no dourado, e é
+   exatamente o par da marca: escudo bordô, espiga dourada. */
+.depo-estrelas {
+  display: flex;
+  gap: .15rem;
+}
+
+.depo-estrela {
+  flex-shrink: 0;
+  fill: var(--color-gold);
+  stroke: var(--color-accent);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.depo-quote p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-ink);
+  text-wrap: pretty;
+}
+
+/* margin-top auto encosta a autoria no rodapé do cartão: com três cartões
+   de alturas diferentes lado a lado, os nomes ficam na mesma linha. */
+.depo-autor {
+  margin-top: auto;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(26, 20, 18, .10);
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+
+.depo-nome {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: var(--color-accent);
+}
+
+.depo-origem {
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1.4;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 768px) {
+  .depo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .depo-card {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================================
+   AVALIAR NO GOOGLE
+   Caminho único: todo clique vai para o mesmo link, sem triagem
+   por nota antes (review gating viola a política do Google).
+   O botão é do visitante; o QR é ferramenta de balcão da Sagres,
+   por isso ele entra menor e ao lado, não no lugar do botão.
+   ============================================================ */
+
+.avaliar-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.avaliar-copy .section-lead {
+  margin-bottom: 1.75rem;
+}
+
+.avaliar-copy .rule-gold {
+  margin-bottom: 1rem;
+}
+
+.avaliar-btn {
+  width: 100%;
+}
+
+.avaliar-btn-ico {
+  flex-shrink: 0;
+}
+
+/* Mesma moldura dourada do card da foto do hero, em escala menor */
+.qr-card {
+  width: 100%;
+  max-width: 216px;
+  margin-inline: auto;
+  background: var(--color-white);
+  border: 3px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: .75rem .75rem .25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.qr-card img {
+  width: 100%;
+  border-radius: calc(var(--radius-md) - 10px);
+}
+
+.qr-card figcaption {
+  padding: .6rem .1rem .45rem;
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-ink-mid);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .avaliar-inner {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .avaliar-btn {
+    width: auto;
+  }
+}
+
+/* ============================================================
+   SOBRE
+   Duas falas da própria Sagres, marcadas como citação. O tratamento
+   tipográfico separa o que é fala deles (display, filete dourado)
+   do que é texto nosso (corpo, sem aspas). O leitor precisa enxergar
+   essa fronteira sem precisar ler a autoria.
+   ============================================================ */
+
+.sobre-inner .rule-gold {
+  margin-bottom: 1.75rem;
+}
+
+.sobre-fala {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.1rem;
+}
+
+.sobre-fala+.sobre-fala {
+  margin-top: 1.25rem;
+}
+
+.sobre-fala p {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 3.4vw, 1.45rem);
+  line-height: 1.45;
+  color: var(--color-ink);
+  text-wrap: pretty;
+}
+
+.sobre-autoria {
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* Fecho: copy nossa. Fundo creme e filete bordô, para não ser lida
+   como continuação da fala da Sagres. */
+.sobre-fecho {
+  margin-top: 2rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-ink-mid);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .sobre-fala {
+    padding-left: 1.5rem;
+  }
+
+  .sobre-autoria {
+    padding-left: 1.5rem;
+  }
+}
+
+/* ============================================================
+   LOCALIZAÇÃO E HORÁRIO
+   Sobre é branco, então esta vai de creme: o corte de fundo separa
+   as duas sem borda extra. Cartões brancos repetem o vocabulário
+   do .cbloco e do .pedido-card.
+   O intervalo do almoço ganha destaque próprio porque é a linha que
+   mais gera pedido perdido: quem liga 12:40 acha que a casa fechou.
+   ============================================================ */
+
+#local {
+  background: var(--color-bg-alt);
+}
+
+.local-head {
+  margin-bottom: 2rem;
+}
+
+.local-head .rule-gold {
+  margin-bottom: 0;
+}
+
+.local-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.local-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.local-bloco {
+  background: var(--color-white);
+  border: 1px solid rgba(122, 18, 24, .16);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+.local-tit {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: .9rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: var(--color-accent);
+}
+
+.local-ico {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+/* Verde escuro da marca do WhatsApp: 4,6:1 sobre branco.
+   O #25D366 puro daria 1,8:1 e some no cartão. */
+.local-ico--wa {
+  color: #128C4B;
+}
+
+.local-endereco {
+  font-style: normal;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+.local-rota {
+  margin-top: 1.1rem;
+  width: 100%;
+}
+
+/* ----- Horário ----- */
+.local-horario-linha {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+  padding-block: .65rem;
+  border-bottom: 1px solid rgba(26, 20, 18, .10);
+}
+
+.local-horario-linha:first-child {
+  padding-top: 0;
+}
+
+.local-horario-linha:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.local-horario dt {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--color-ink-mid);
+}
+
+.local-horario dd {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mesmo padrão dos avisos do cardápio e do formulário */
+.local-aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  margin-top: 1.1rem;
+  padding: .7rem .85rem;
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: .9rem;
+  line-height: 1.5;
+  color: var(--color-ink-mid);
+  text-wrap: pretty;
+}
+
+.local-aviso strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.local-aviso-ico {
+  flex-shrink: 0;
+  margin-top: .15rem;
+  color: var(--color-accent);
+}
+
+/* ----- Contatos -----
+   Grid de duas colunas: ícone à esquerda ocupando as duas linhas,
+   rótulo em cima do número. Em 390px o número não quebra e o alvo
+   de toque fica acima de 48px sem precisar de padding artificial. */
+.local-contatos {
+  list-style: none;
+}
+
+.local-contatos li+li {
+  border-top: 1px solid rgba(26, 20, 18, .10);
+}
+
+.local-contatos a {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  column-gap: .8rem;
+  align-items: center;
+  min-height: 56px;
+  padding-block: .55rem;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: color var(--transition);
+}
+
+.local-contatos a svg {
+  grid-row: 1 / span 2;
+}
+
+.local-contato-rot {
+  grid-column: 2;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--color-ink-mid);
+}
+
+.local-contato-val {
+  grid-column: 2;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-accent);
+}
+
+/* Só sublinhado e cor: nada que empurre a linha de baixo */
+.local-contatos a:hover .local-contato-val {
+  color: var(--color-accent-h);
+  text-decoration: underline;
+}
+
+/* ----- Mapa e foto ----- */
+.local-mapa {
+  border: 1px solid rgba(122, 18, 24, .16);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: var(--color-white);
+}
+
+.local-mapa iframe {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: 0;
+}
+
+/* Moldura dourada do hero, em escala menor. A origem é 622x632 real,
+   então o card trava em 320px pra não subir de escala. */
+.local-foto {
+  width: 100%;
+  max-width: 320px;
+  margin: 1.25rem auto 0;
+  background: var(--color-white);
+  border: 3px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: .5rem .5rem .25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.local-foto img {
+  width: 100%;
+  border-radius: calc(var(--radius-md) - 8px);
+}
+
+.local-foto figcaption {
+  padding: .6rem .25rem .4rem;
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 768px) {
+  .local-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 2.5rem;
+  }
+
+  .local-bloco {
+    padding: 1.5rem;
+  }
+
+  .local-rota {
+    width: auto;
+  }
+
+  .local-mapa iframe {
+    height: 340px;
+  }
+
+  .local-foto {
+    margin-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .local-contatos a {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   FAQ
+   Mesmo componente do cardápio (.cbloco): <details>/<summary> nativo,
+   sem JS, teclado e leitor de tela de graça, e mais de um bloco pode
+   ficar aberto ao mesmo tempo. A resposta mora no HTML, indexável.
+   #local é creme e #cta-final é bordô, então esta fica branca: os três
+   fundos se separam sem precisar de borda.
+   Coluna estreita (container--narrow) porque aqui o conteúdo é texto
+   corrido e a linha precisa parar antes dos 75 caracteres.
+   ============================================================ */
+
+#faq {
+  background: var(--color-bg);
+}
+
+.faq-head {
+  margin-bottom: 2rem;
+}
+
+.faq-head .rule-gold {
+  margin-bottom: 0;
+}
+
+.faq-lista {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+/* A pergunta é frase, não rótulo de categoria como "Pizzas": sai do display
+   e vai pro corpo, que aguenta duas linhas em 390px sem virar bloco pesado. */
+.faq-pergunta {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+/* Sem contagem de itens ao lado do chevron: ele encosta na direita sozinho.
+   O alvo de toque continua vindo do min-height de 56px do .cbloco-sum. */
+.faq-item .cbloco-meta {
+  margin-left: auto;
+}
+
+/* Respiro maior que no cardápio: ali o filete dourado encosta numa lista,
+   aqui encosta em parágrafo. */
+.faq-resposta {
+  padding-top: 1rem;
+  color: var(--color-ink-mid);
+  line-height: 1.75;
+}
+
+.faq-resposta p + p {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .faq-pergunta {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===== CTA final ===== */
+#cta-final {
+  background: var(--color-accent);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.cta-final-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.cta-final-body {
+  color: rgba(255, 255, 255, .88);
+  max-width: 540px;
+  margin: 0 auto 1.75rem;
+}
+
+/* Bordô sobre bordô não existe: aqui o botão inverte para branco.
+   Mesmo tratamento do botão da barra fixa. */
+#cta-final .btn {
+  margin-top: .75rem;
+  background: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-accent);
+}
+
+#cta-final .btn:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-bg-alt);
+  color: var(--color-accent-h);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}
+
+/* ===== Footer =====
+   Seletor no #footer, não no elemento: a página usa <footer> também
+   dentro dos cartões de depoimento, e o seletor solto pintava aqueles
+   blocos de preto. */
+#footer {
+  background: var(--color-ink);
+  color: var(--color-white);
+  padding-block: 2.5rem;
+  border-top: 3px solid var(--color-gold);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .18);
+  margin-bottom: .35rem;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: .02em;
+}
+
+.footer-endereco {
+  font-style: normal;
+  font-size: .92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, .82);
+}
+
+.footer-tit {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: .03em;
+  color: var(--color-gold);
+}
+
+.footer-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-lista a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: .92rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, .86);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-lista a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.footer-lista--texto li {
+  font-size: .92rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, .82);
+}
+
+.footer-copy {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  text-align: center;
+  font-size: .8rem;
+  letter-spacing: .02em;
+  color: rgba(255, 255, 255, .62);
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    gap: 2.5rem;
+  }
+
+  .footer-col {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-lista a {
+    transition: none;
+  }
+}
+
+/* Espaço pro sticky bar não cobrir o footer no mobile */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 76px;
+  }
+}

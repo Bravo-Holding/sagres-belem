@@ -1,0 +1,12 @@
+---
+# Deploy: cPanel Git Version Control roda este arquivo no "Deploy HEAD Commit".
+# CRÍTICO: liste TODOS os assets no cp, INCLUSIVE imagens (og-image, fotos).
+# O que não estiver aqui não vai pra produção.
+# $HOME evita expor o usuário cPanel no repo público.
+deployment:
+  tasks:
+    - export DEPLOYPATH="$HOME/«dominio»/«path»/v1/"   # [PENDENTE] domínio e path
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R index.html style.css robots.txt llms.txt img $DEPLOYPATH
+    # adicione aqui outros assets usados pela página, ex.: fotos .jpg/.png
+    # [PENDENTE] sitemap.xml entra aqui quando o domínio existir

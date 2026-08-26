@@ -1,0 +1,19 @@
+# Internos — não publicar
+briefing.md
+cardapio.md
+CLAUDE.md
+contexto-titi.md
+contexto-amelia.md
+verificar-cardapio.py
+referencia/
+.claude/
+.DS_Store
+
+# Fontes de arte (não vão pro deploy; só os assets finais gerados vão)
+banner.png
+*.psd
+*.fig
+
+# Python
+__pycache__/
+*.pyc

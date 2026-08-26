@@ -1,0 +1,2809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panificadora Sagres · Cardápio e encomenda em Belém</title>
+  <meta name="description"
+    content="Cardápio completo com preço da Panificadora Sagres, em Batista Campos. Pizza de tabuleiro, sanduíche de metro e salgados por encomenda. Peça pelo WhatsApp.">
+  <meta property="og:title" content="Panificadora Sagres · a melhor padaria de Belém, sete vezes">
+  <meta property="og:description"
+    content="Cardápio completo com preço da Panificadora Sagres, em Batista Campos. Pizza de tabuleiro, sanduíche de metro e salgados por encomenda. Peça pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Panificadora Sagres">
+  <meta property="og:locale" content="pt_BR">
+  <!-- [PENDENTE] og:url e og:image ficam comentados de propósito: publicar a tag com
+       valor inválido é pior que não publicar. Descomentar quando houver domínio e a
+       foto em alta da Sagres (1200x630, < 300KB, URL absoluta). -->
+  <!-- <meta property="og:url" content="https://SEU-DOMINIO/"> -->
+  <!-- <meta property="og:image" content="https://SEU-DOMINIO/og-image.jpg"> -->
+  <!-- <meta property="og:image:width" content="1200"> -->
+  <!-- <meta property="og:image:height" content="630"> -->
+  <!-- <meta property="og:image:alt" content="Panificadora Sagres, em Batista Campos, Belém"> -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Panificadora Sagres · a melhor padaria de Belém, sete vezes">
+  <meta name="twitter:description"
+    content="Cardápio completo com preço da Panificadora Sagres, em Batista Campos. Pizza de tabuleiro, sanduíche de metro e salgados por encomenda. Peça pelo WhatsApp.">
+  <!-- [PENDENTE] mesma imagem do og:image -->
+  <!-- <meta name="twitter:image" content="https://SEU-DOMINIO/og-image.jpg"> -->
+  <!-- [PENDENTE] favicon definitivo: depende do logo em vetor da Sagres -->
+  <link rel="icon" type="image/png" sizes="256x256" href="img/logo-sagres.png">
+  <link rel="apple-touch-icon" href="img/logo-sagres.png">
+  <meta name="theme-color" content="#7A1218">
+  <meta name="author" content="Panificadora Sagres">
+  <meta name="geo.region" content="BR-PA">
+  <meta name="geo.placename" content="Belém">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <!-- [PENDENTE] canonical depende do domínio, ainda não definido -->
+  <!-- <link rel="canonical" href="https://SEU-DOMINIO/"> -->
+  <!-- Fontes: Playfair Display (display) + Inter (corpo). Uma única requisição css2. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet" />
+  </noscript>
+
+  <!-- ===== CSS CRÍTICO (above-the-fold + compartilhado). NÃO mover pro style.css ===== -->
+  <style>
+    :root {
+      /* === DESIGN TOKENS — Panificadora Sagres (espelhados no CLAUDE.md) === */
+      --color-bg: #FFFFFF;
+      --color-bg-alt: #F7F1E6;
+      --color-ink: #1A1412;
+      --color-ink-mid: #4A3F3B;
+      --color-ink-muted: #7A6E68;
+      --color-accent: #7A1218;
+      --color-accent-h: #5C0D12;
+      --color-gold: #C9A227;
+      --color-white: #FFFFFF;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-card: 0 2px 16px rgba(26, 20, 18, .10);
+      --transition: 200ms ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Foco visível em tudo que é operável pelo teclado */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--color-gold);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin-inline: auto;
+      padding-inline: 1.25rem;
+    }
+
+    .container--narrow {
+      max-width: 720px;
+      margin-inline: auto;
+      padding-inline: 1.25rem;
+    }
+
+    .section {
+      padding-block: var(--space-lg);
+    }
+
+    .section--xl {
+      padding-block: var(--space-xl);
+    }
+
+    .section--cream {
+      background: var(--color-bg-alt);
+    }
+
+    .text-accent {
+      color: var(--color-accent);
+    }
+
+    /* Filete dourado: detalhe decorativo, nunca texto (contraste do dourado no branco não passa AA) */
+    .rule-gold {
+      width: 64px;
+      height: 3px;
+      background: var(--color-gold);
+      border: 0;
+    }
+
+    /* CTA */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background: var(--color-accent);
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--color-accent);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+      min-height: 56px;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: var(--color-accent-h);
+      border-color: var(--color-accent-h);
+      box-shadow: 0 6px 18px rgba(122, 18, 24, .28);
+    }
+
+    /* Contorno bordô sobre fundo claro. CTA secundário. */
+    .btn--ghost {
+      background: transparent;
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: inset 0 0 0 0 var(--color-accent);
+    }
+
+    .btn--ghost:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-white);
+      box-shadow: 0 6px 18px rgba(122, 18, 24, .22);
+    }
+
+    /* WhatsApp. Texto escuro sobre o verde da marca: 9:1.
+       Branco sobre #25D366 daria 2:1 e reprovaria no AA. */
+    .btn--wa {
+      background: #25D366;
+      border-color: #25D366;
+      color: var(--color-ink);
+    }
+
+    .btn--wa:hover {
+      background: #1DA851;
+      border-color: #1DA851;
+      color: var(--color-ink);
+      box-shadow: 0 6px 18px rgba(29, 168, 81, .32);
+    }
+
+    .btn--lg {
+      font-size: 1.2rem;
+      padding: 1.2rem 2.5rem;
+      min-height: 64px;
+    }
+
+    .btn--full {
+      width: 100%;
+    }
+
+    /* Fade-up on scroll */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .hero-copy>* {
+        animation: none;
+      }
+    }
+
+    /* Hero (above the fold) */
+    #hero {
+      padding-block: 2.5rem 3rem;
+      background: var(--color-bg-alt);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      #hero {
+        padding-block: 3.5rem 4.5rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1.05fr .95fr;
+        gap: var(--space-lg);
+      }
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 5.4vw, 3.5rem);
+      line-height: 1.06;
+      letter-spacing: -.01em;
+    }
+
+    .hero-sub {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      color: var(--color-ink-mid);
+      max-width: 480px;
+    }
+
+    .hero-cta {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    /* Mobile: os dois CTAs ocupam a linha inteira, então empilham com a mesma
+       largura. No desktop voltam a ser dimensionados pelo conteúdo, lado a lado. */
+    .hero-cta .btn {
+      flex: 1 1 100%;
+    }
+
+    @media (min-width: 768px) {
+      .hero-cta .btn {
+        flex: 0 0 auto;
+      }
+    }
+
+    .hero-logo {
+      height: 56px;
+      width: auto;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Selos: coluna no mobile, linha única no desktop */
+    .hero-selos {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--color-ink-mid);
+    }
+
+    .hero-selos li {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .hero-selo-ico {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    @media (min-width: 768px) {
+      .hero-selos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .5rem 1.25rem;
+      }
+    }
+
+    /* Card da foto. A origem é 614x508 real, então o card trava em 340px
+       pra não subir de escala e denunciar a resolução baixa. */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo-card {
+      width: 100%;
+      max-width: 340px;
+      background: var(--color-white);
+      border: 3px solid var(--color-gold);
+      border-radius: var(--radius-md);
+      padding: .5rem .5rem .25rem;
+      box-shadow: 0 10px 30px rgba(26, 20, 18, .16);
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      border-radius: calc(var(--radius-md) - 8px);
+    }
+
+    .hero-photo-card figcaption {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      text-align: center;
+      padding: .6rem .25rem .4rem;
+    }
+
+    /* Revelação escalonada do bloco de texto. A foto fica fora de propósito:
+       ela é o LCP e não pode nascer em opacity 0. */
+    @keyframes heroRise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .hero-copy>* {
+      animation: heroRise .5s ease both;
+    }
+
+    .hero-copy>*:nth-child(2) {
+      animation-delay: .08s;
+    }
+
+    .hero-copy>*:nth-child(3) {
+      animation-delay: .16s;
+    }
+
+    .hero-copy>*:nth-child(4) {
+      animation-delay: .24s;
+    }
+
+    .hero-copy>*:nth-child(5) {
+      animation-delay: .32s;
+    }
+
+    /* Faixa de prova: só o fundo, a cor do texto e os filetes dourados sobem
+       pro crítico. Em 1280x800 a faixa começa em y=742, dentro da dobra, e
+       piscaria como lista branca sem estilo enquanto o style.css (media=print
+       + onload) ainda não trocou. Grid, tipografia dos números, divisores e
+       breakpoints continuam no style.css. */
+    #prova {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-top: 3px solid var(--color-gold);
+      border-bottom: 3px solid var(--color-gold);
+    }
+
+    /* Sem o marcador da <ul>, senão bullets brancos aparecem sobre o bordô
+       durante o mesmo flash. Padding e margin do <ul> já vêm zerados pelo
+       reset acima, que também é crítico. */
+    .prova-grid {
+      list-style: none;
+    }
+
+    /* Sticky CTA (mobile) */
+    .sticky-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .75rem 1rem;
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-top: 3px solid var(--color-gold);
+      transform: translateY(110%);
+      transition: transform .3s ease;
+    }
+
+    .sticky-bar.show {
+      transform: none;
+    }
+
+    .sticky-bar-text {
+      font-size: .85rem;
+      line-height: 1.2;
+    }
+
+    .sticky-bar-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .95rem;
+    }
+
+    .sticky-bar .btn {
+      background: var(--color-white);
+      border-color: var(--color-white);
+      color: var(--color-accent);
+      padding: .7rem 1.1rem;
+      min-height: 48px;
+      font-size: .95rem;
+      flex-shrink: 0;
+    }
+
+    .sticky-bar .btn:hover {
+      background: var(--color-bg-alt);
+      border-color: var(--color-bg-alt);
+      color: var(--color-accent-h);
+    }
+  </style>
+
+  <!-- CSS não-crítico (abaixo do fold) — carregado de forma não-bloqueante -->
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="style.css" />
+  </noscript>
+
+  <!-- [PENDENTE] aggregateRating (4,6 · 2.189) só entra se a Sagres autorizar exibir número de terceiro -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "@id": "#sagres",
+    "name": "Panificadora Sagres",
+    "alternateName": [
+      "Padaria Sagres",
+      "Pizzaria Sagres"
+    ],
+    "description": "Padaria e pizzaria portuguesa tradicional de Belém do Pará, na mesma casa desde 1985. Encomenda de pizza de tabuleiro, sanduíche de metro, salgados, doces, pães, bolos e frios por quilo.",
+    "slogan": "A melhor padaria de Belém, sete vezes",
+    "foundingDate": "1985",
+    "image": [
+      "img/pernil.jpg",
+      "img/fachada.jpg"
+    ],
+    "logo": "img/logo-sagres.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. dos Caripunas, 1717",
+      "addressLocality": "Belém",
+      "addressRegion": "PA",
+      "postalCode": "66033-442",
+      "addressCountry": "BR"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Belém",
+      "addressRegion": "PA",
+      "addressCountry": "BR"
+    },
+    "hasMap": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x92a48e7cec6d4887:0xb561f307297391a9!12e1",
+    "telephone": "+55 91 98404-2359",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "pedidos e encomendas",
+        "telephone": "+55 91 98404-2359",
+        "availableLanguage": "pt-BR"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "atendimento",
+        "telephone": "+55 91 3223-9123",
+        "availableLanguage": "pt-BR"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "atendimento",
+        "telephone": "+55 91 3223-2110",
+        "availableLanguage": "pt-BR"
+      }
+    ],
+    "servesCuisine": [
+      "Padaria",
+      "Pizza",
+      "Portuguesa",
+      "Confeitaria"
+    ],
+    "priceRange": "R$ 1,50 a R$ 249,90",
+    "currenciesAccepted": "BRL",
+    "paymentAccepted": "Dinheiro, Pix, Cartão",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "06:00",
+        "closes": "12:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "14:15",
+        "closes": "20:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "06:00",
+        "closes": "20:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "00:00",
+        "closes": "00:00"
+      }
+    ],
+    "hasMenu": {
+      "@id": "#menu"
+    },
+    "potentialAction": {
+      "@type": "OrderAction",
+      "name": "Encomendar pelo WhatsApp",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://wa.me/5591984042359",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "deliveryMethod": [
+        "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet",
+        "http://purl.org/goodrelations/v1#DeliveryModePickUp"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/sagresbelem/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-copy">
+          <img src="img/logo-sagres.png" alt="Panificadora Sagres" width="256" height="256" class="hero-logo"
+            loading="eager" decoding="async">
+
+          <h1 class="hero-h1">A melhor padaria de Belém, <span class="text-accent">sete vezes seguidas</span>. Agora com
+            o cardápio inteiro na sua mão.</h1>
+
+          <p class="hero-sub">Pizza de tabuleiro, sanduíche de metro e os salgados da Sagres para encomendar. Escolha,
+            preencha e o pedido vai pronto pro WhatsApp.</p>
+
+          <ul class="hero-selos">
+            <li><span class="hero-selo-ico" aria-hidden="true">🇵🇹</span>Desde 1985</li>
+            <li><span class="hero-selo-ico" aria-hidden="true">🥇</span>7x melhor padaria de Belém</li>
+            <li><span class="hero-selo-ico" aria-hidden="true">⭐</span>4,6 no Google</li>
+          </ul>
+
+          <div class="hero-cta">
+            <a href="#pedido" class="btn btn--lg">Montar meu pedido</a>
+            <a href="#cardapio" class="btn btn--lg btn--ghost">Ver o cardápio</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- [PENDENTE] substituir por foto em alta da Sagres quando chegar; o card já está dimensionado -->
+          <figure class="hero-photo-card">
+            <img src="img/pernil.jpg" alt="Pernil assado da Sagres com queijo do Marajó" width="614" height="508"
+              loading="eager" fetchpriority="high" decoding="async">
+            <figcaption>Pernil assado da casa</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROVA (faixa logo abaixo do hero) ===== -->
+  <section id="prova" aria-label="Reconhecimentos da Panificadora Sagres">
+    <div class="container">
+      <ul class="prova-grid">
+        <li class="prova-item">
+          <span class="prova-num">4,6</span>
+          <span class="prova-label">no Google · 2.189 avaliações</span>
+        </li>
+        <li class="prova-item">
+          <span class="prova-num">1º</span>
+          <span class="prova-label">lugar, Melhor Padaria 2026</span>
+        </li>
+        <li class="prova-item">
+          <span class="prova-num">7ª</span>
+          <span class="prova-label">Estrela Azul</span>
+        </li>
+        <li class="prova-item">
+          <span class="prova-num">40 anos</span>
+          <span class="prova-label">na Rua dos Caripunas</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== CARDÁPIO ===== -->
+  <section id="cardapio" class="section--xl">
+    <div class="container">
+
+      <header class="cardapio-head fade-up">
+        <h2 class="section-title">Cardápio de <span class="text-accent">encomenda</span></h2>
+        <hr class="rule-gold" aria-hidden="true">
+        <p class="section-lead">Tudo com preço, do jeito que a Sagres entrega hoje.</p>
+      </header>
+
+      <div class="cardapio-blocos fade-up">
+
+        <!-- ---------- PIZZAS (19 itens) ---------- -->
+        <details class="cbloco" open>
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Pizzas</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">19 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo">
+            <ul class="item-lista">
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">MISTA</span>
+                  <span class="item-desc">molho, presunto, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 144</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 71</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 62</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">MISTA C/ CALABRESA</span>
+                  <span class="item-desc">molho, presunto, mussarela, calabresa e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 144</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 71</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 62</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">CALABRESA</span>
+                  <span class="item-desc">molho, presunto, mussarela, calabresa e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 144</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 71</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 62</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">MUSSARELA</span>
+                  <span class="item-desc">molho, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 144</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 71</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 62</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">MARGUERITA</span>
+                  <span class="item-desc">molho, mussarela, manjericão, tomate e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 144</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 71</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 62</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">PERNIL</span>
+                  <span class="item-desc">molho, pernil tradicional Sagres, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 148</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 75</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 65</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">PEITO DE PERU</span>
+                  <span class="item-desc">molho, peito de peru fatiado, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 148</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 75</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 65</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">PORTUGUESA</span>
+                  <span class="item-desc">molho, presunto, mussarela, calabresa, ovo, azeitona, cebola e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 148</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 75</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 65</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">ATUM</span>
+                  <span class="item-desc">molho, pasta de atum, queijo mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 148</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 75</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 65</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">SALAME</span>
+                  <span class="item-desc">molho, salame fatiado, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 148</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 75</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 65</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">4 QUEIJOS</span>
+                  <span class="item-desc">molho, queijos mussarela, prato, cuia, Marajó e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 165</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 88</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 74</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">QUEIJO CUIA</span>
+                  <span class="item-desc">molho, mussarela, queijo cuia e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 168</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 88</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 74</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">TENDER</span>
+                  <span class="item-desc">molho, tender fatiado, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 157</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 79</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 65</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">BACALHAU</span>
+                  <span class="item-desc">molho, bacalhau refogado Sagres, mussarela, azeitonas e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 195</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 99</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 89</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">FILÉ</span>
+                  <span class="item-desc">molho, cubos de filé, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 198</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 100</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 89</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">FILÉ COM CUIA</span>
+                  <span class="item-desc">molho, cubos de filé, mussarela, queijo cuia e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 215</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 115</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 95</span></li>
+                </ul>
+              </li>
+
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">FILÉ COM BACON</span>
+                  <span class="item-desc">molho, cubos de filé, bacon, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 200</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 105</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 89</span></li>
+                </ul>
+              </li>
+
+              <!-- [PENDENTE] descrição do BACON repete a de FILÉ COM BACON na arte original; confirmar com a Sagres -->
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">BACON</span>
+                  <span class="item-desc">molho, cubos de filé, bacon, mussarela e orégano</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 148</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 75</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 65</span></li>
+                </ul>
+              </li>
+
+              <!-- [PENDENTE] "azeite portugués" está com acento agudo na arte original; mantido verbatim -->
+              <li class="item item--pizza">
+                <div class="item-texto">
+                  <span class="item-nome">COP30</span>
+                  <span class="item-desc">molho, pernil tradicional Sagres, creme de queijo do Marajó, manjericão
+                    regional e azeite portugués</span>
+                </div>
+                <ul class="medidas">
+                  <li><span class="medida-rot">Tabuleiro</span><span class="medida-val">R$ 199</span></li>
+                  <li><span class="medida-rot">Gigante</span><span class="medida-val">R$ 108</span></li>
+                  <li><span class="medida-rot">Média</span><span class="medida-val">R$ 90</span></li>
+                </ul>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---------- SANDUÍCHES METRO (20 itens) ---------- -->
+        <details class="cbloco">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Sanduíches metro</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">20 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo">
+            <ul class="item-lista">
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">QUEIJO PRATO</span>
+                  <span class="item-desc">pão e queijo prato</span>
+                </div>
+                <span class="item-preco">R$ 88</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MISTO</span>
+                  <span class="item-desc">pão, queijo prato e presunto</span>
+                </div>
+                <span class="item-preco">R$ 93</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">SALAME</span>
+                  <span class="item-desc">pão, queijo prato e salame</span>
+                </div>
+                <span class="item-preco">R$ 140</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">SALAME MISTO</span>
+                  <span class="item-desc">pão, queijo prato, presunto e salame</span>
+                </div>
+                <span class="item-preco">R$ 150</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">SALAME C/ QUEIJO CUIA</span>
+                  <span class="item-desc">pão, salame e queijo cuia</span>
+                </div>
+                <span class="item-preco">R$ 180</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PEITO DE PERU C/ QUEIJO PRATO</span>
+                  <span class="item-desc">pão, peito de peru fatiado e queijo prato</span>
+                </div>
+                <span class="item-preco">R$ 125</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRESUNTO COZIDO</span>
+                  <span class="item-desc">pão e presunto cozido</span>
+                </div>
+                <span class="item-preco">R$ 75</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRESUNTO PARMA COM QUEIJO</span>
+                  <span class="item-desc">pão e presunto parma com queijo</span>
+                </div>
+                <span class="item-preco">R$ 195,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PEITO DE PERU C/ QUEIJO CUIA</span>
+                  <span class="item-desc">pão, peito de peru fatiado e queijo cuia</span>
+                </div>
+                <span class="item-preco">R$ 150</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PERNIL C/ QUEIJO CUIA</span>
+                  <span class="item-desc">pão, pernil especial da Sagres e queijo cuia</span>
+                </div>
+                <span class="item-preco">R$ 210</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PERNIL SIMPLES</span>
+                  <span class="item-desc">pão e pernil especial da Sagres</span>
+                </div>
+                <span class="item-preco">R$ 138</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PERNIL C/ QUEIJO PRATO</span>
+                  <span class="item-desc">pão, pernil especial da Sagres e queijo prato</span>
+                </div>
+                <span class="item-preco">R$ 143</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PERNIL C/ QUEIJO DO MARAJÓ</span>
+                  <span class="item-desc">pão, pernil especial da Sagres e queijo do Marajó</span>
+                </div>
+                <span class="item-preco">R$ 210</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PERNIL C/ PEITO DE PERU</span>
+                  <span class="item-desc">pão, pernil especial da Sagres e peito de peru fatiado</span>
+                </div>
+                <span class="item-preco">R$ 145</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">FILÉ</span>
+                  <span class="item-desc">pão e filé</span>
+                </div>
+                <span class="item-preco">R$ 155</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">FILÉ C/ QUEIJO PRATO</span>
+                  <span class="item-desc">pão, filé e queijo prato</span>
+                </div>
+                <span class="item-preco">R$ 170</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">FILÉ C/ QUEIJO CUIA</span>
+                  <span class="item-desc">pão, filé e queijo cuia</span>
+                </div>
+                <span class="item-preco">R$ 210</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MISTO SIMPLES C/ PATÊ DO REINO</span>
+                  <span class="item-desc">pão, queijo prato, presunto e patê do reino</span>
+                </div>
+                <span class="item-preco">R$ 155</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">QUEIJO CUIA C/ SALADA</span>
+                  <span class="item-desc">pão, queijo cuia, alface, cebola e tomate</span>
+                </div>
+                <span class="item-preco">R$ 183</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BACALHAU</span>
+                  <span class="item-desc">pão e bacalhau especial da Sagres</span>
+                </div>
+                <span class="item-preco">R$ 200</span>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---------- BEBIDAS 2L (4 itens) ---------- -->
+        <details class="cbloco">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Bebidas 2L</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">4 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo">
+            <ul class="item-lista">
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">COCA-COLA/ZERO</span>
+                </div>
+                <span class="item-preco">R$ 14,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">FANTA UVA/LARANJA</span>
+                </div>
+                <span class="item-preco">R$ 14,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">GUARANÁ ANTÁRTICA/ZERO</span>
+                </div>
+                <span class="item-preco">R$ 10,99</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">GUARANÁ GAROTO</span>
+                </div>
+                <span class="item-preco">R$ 8,50</span>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---------- SALGADOS (17 itens) ---------- -->
+        <details class="cbloco">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Salgados</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">17 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo cbloco-corpo--kg">
+            <p class="kg-aviso">
+              <svg class="kg-aviso-ico" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <line x1="12" y1="11" x2="12" y2="16"></line>
+                <line x1="12" y1="7.5" x2="12" y2="7.6"></line>
+              </svg>
+              <span><strong>Preços passíveis de reajuste.</strong> Valores por quilo, exceto os
+                marcados /UND ou /INTEIRO.</span>
+            </p>
+
+            <div class="kg-cab">
+              <span class="kg-cab-rot">Produto</span>
+              <span class="kg-cab-rot">Preço por quilo</span>
+            </div>
+
+            <ul class="item-lista">
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI PASTEL QUEIJO</span>
+                </div>
+                <span class="item-preco">R$85,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PÃO DE QUEIJO</span>
+                </div>
+                <span class="item-preco">R$59,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">ITALIANINHO</span>
+                </div>
+                <span class="item-preco">R$69,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI CROISSANT</span>
+                </div>
+                <span class="item-preco">R$95,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">ENROLADO MISTO</span>
+                </div>
+                <span class="item-preco">R$75,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">COXINHA/KIBE</span>
+                </div>
+                <span class="item-preco">R$60,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI ESFIRRA</span>
+                </div>
+                <span class="item-preco">R$90,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI HOT-DOG</span>
+                </div>
+                <span class="item-preco">R$85,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">DELÍCIA PARMESÃO</span>
+                </div>
+                <span class="item-preco">R$70,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">DELÍCIA DO REINO</span>
+                </div>
+                <span class="item-preco">R$99,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI SAND. LEITÃO</span>
+                </div>
+                <span class="item-preco">R$140,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI HAMBURGUER</span>
+                </div>
+                <span class="item-preco">R$110,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI MISTO P. FORMA</span>
+                </div>
+                <span class="item-preco">R$120,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI PIZZA</span>
+                </div>
+                <span class="item-preco">R$135,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">EMPADÃO BACALHAU</span>
+                </div>
+                <span class="item-preco">R$135,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">TORTA AMERICANA</span>
+                </div>
+                <span class="item-preco">R$6,00/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">CROISSANT S RECHEIO</span>
+                </div>
+                <span class="item-preco">R$6,99/UND</span>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---------- DOCES (17 itens) ---------- -->
+        <details class="cbloco">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Doces</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">17 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo cbloco-corpo--kg">
+            <p class="kg-aviso">
+              <svg class="kg-aviso-ico" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <line x1="12" y1="11" x2="12" y2="16"></line>
+                <line x1="12" y1="7.5" x2="12" y2="7.6"></line>
+              </svg>
+              <span><strong>Preços passíveis de reajuste.</strong> Valores por quilo, exceto os
+                marcados /UND ou /INTEIRO.</span>
+            </p>
+
+            <div class="kg-cab">
+              <span class="kg-cab-rot">Produto</span>
+              <span class="kg-cab-rot">Preço por quilo</span>
+            </div>
+
+            <ul class="item-lista">
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BISCOITO DA CASA</span>
+                </div>
+                <span class="item-preco">R$45,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MONTEIRO LOPES</span>
+                </div>
+                <span class="item-preco">R$59,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BOLO MACAXEIRA FAT.</span>
+                </div>
+                <span class="item-preco">R$6,00/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">CROISSANT CUPUAÇU</span>
+                </div>
+                <span class="item-preco">R$95,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI PAST. CUPUAÇÚ</span>
+                </div>
+                <span class="item-preco">R$85,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">ROSQ. TAPIOCA</span>
+                </div>
+                <span class="item-preco">R$85,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">QUINDIM</span>
+                </div>
+                <span class="item-preco">R$5,50/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI ORELHA</span>
+                </div>
+                <span class="item-preco">R$95,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">SONHO PEQUENO</span>
+                </div>
+                <span class="item-preco">R$3,00/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">SONHO GRANDE</span>
+                </div>
+                <span class="item-preco">R$6,00/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">CARACOL PEQUENO</span>
+                </div>
+                <span class="item-preco">R$6,00/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">CARACOL GRANDE</span>
+                </div>
+                <span class="item-preco">R$8,00/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">RABANADA</span>
+                </div>
+                <span class="item-preco">R$6,00/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MINI RABANADA</span>
+                </div>
+                <span class="item-preco">R$2,50/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BISCOITO PACIÊNCIA</span>
+                </div>
+                <span class="item-preco">R$45,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">DELICINHA PÃO DE ROSA</span>
+                </div>
+                <span class="item-preco">R$2,50/UND</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BANANINHA DE COCO</span>
+                </div>
+                <span class="item-preco">R$1,50/UND</span>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---------- BOLOS/TORTAS INTEIROS (8 itens) ---------- -->
+        <details class="cbloco">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Bolos e tortas</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">8 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo cbloco-corpo--kg">
+            <p class="kg-aviso">
+              <svg class="kg-aviso-ico" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <line x1="12" y1="11" x2="12" y2="16"></line>
+                <line x1="12" y1="7.5" x2="12" y2="7.6"></line>
+              </svg>
+              <span><strong>Preços passíveis de reajuste.</strong> Valores por quilo, exceto os
+                marcados /UND ou /INTEIRO.</span>
+            </p>
+
+            <div class="kg-cab">
+              <span class="kg-cab-rot">Produto</span>
+              <span class="kg-cab-rot">Preço por quilo</span>
+            </div>
+
+            <ul class="item-lista">
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PUDIM</span>
+                </div>
+                <span class="item-preco">R$42,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">TORTA LIMÃO</span>
+                </div>
+                <span class="item-preco">R$42,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BOLO DE MACAXEIRA</span>
+                </div>
+                <span class="item-preco">R$190,00/INTEIRO</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BOLO CHOCOLATE</span>
+                </div>
+                <span class="item-preco">R$42,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BOLO ABACAXI</span>
+                </div>
+                <span class="item-preco">R$42,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">ROCAMBOLE</span>
+                </div>
+                <span class="item-preco">R$49,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BOLO DA CASA PEQ</span>
+                </div>
+                <span class="item-preco">R$28,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PAO DE LÓ CUPUAÇÚ</span>
+                </div>
+                <span class="item-preco">R$42,00</span>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---------- PÃES (10 itens) ---------- -->
+        <details class="cbloco">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Pães</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">10 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo cbloco-corpo--kg">
+            <p class="kg-aviso">
+              <svg class="kg-aviso-ico" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <line x1="12" y1="11" x2="12" y2="16"></line>
+                <line x1="12" y1="7.5" x2="12" y2="7.6"></line>
+              </svg>
+              <span><strong>Preços passíveis de reajuste.</strong> Valores por quilo, exceto os
+                marcados /UND ou /INTEIRO.</span>
+            </p>
+
+            <div class="kg-cab">
+              <span class="kg-cab-rot">Produto</span>
+              <span class="kg-cab-rot">Preço por quilo</span>
+            </div>
+
+            <ul class="item-lista">
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">CARECA/FRANCÊS</span>
+                </div>
+                <span class="item-preco">R$18,50</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MASSA FINA</span>
+                </div>
+                <span class="item-preco">R$18,50</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">HAMBÚRGUER</span>
+                </div>
+                <span class="item-preco">R$18,50</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">HOT-DOG</span>
+                </div>
+                <span class="item-preco">R$19,50</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">CHÁ</span>
+                </div>
+                <span class="item-preco">R$19,50</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MILHO</span>
+                </div>
+                <span class="item-preco">R$18,50</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">CIABATTA</span>
+                </div>
+                <span class="item-preco">R$25,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">ITALIANO</span>
+                </div>
+                <span class="item-preco">R$25,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BATATA REDONDO</span>
+                </div>
+                <span class="item-preco">R$31,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">FORMA</span>
+                </div>
+                <span class="item-preco">R$24,00</span>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+        <!-- ---------- FRIOS (18 itens) ---------- -->
+        <details class="cbloco">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome">Frios</h3>
+            <span class="cbloco-meta">
+              <span class="cbloco-count">18 itens</span>
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="cbloco-corpo cbloco-corpo--kg">
+            <p class="kg-aviso">
+              <svg class="kg-aviso-ico" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <line x1="12" y1="11" x2="12" y2="16"></line>
+                <line x1="12" y1="7.5" x2="12" y2="7.6"></line>
+              </svg>
+              <span><strong>Preços passíveis de reajuste.</strong> Valores por quilo, exceto os
+                marcados /UND ou /INTEIRO.</span>
+            </p>
+
+            <div class="kg-cab">
+              <span class="kg-cab-rot">Produto</span>
+              <span class="kg-cab-rot">Preço por quilo</span>
+            </div>
+
+            <ul class="item-lista">
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRATO FRIMESA</span>
+                </div>
+                <span class="item-preco">R$62,50</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRATO CRIOULO</span>
+                </div>
+                <span class="item-preco">R$89,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MUSSARELA</span>
+                </div>
+                <span class="item-preco">R$59,99</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PARMESÃO</span>
+                </div>
+                <span class="item-preco">R$115,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">GOUDA</span>
+                </div>
+                <span class="item-preco">R$148,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRIMADONNA</span>
+                </div>
+                <span class="item-preco">R$249,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRESUNTO MAGRO</span>
+                </div>
+                <span class="item-preco">R$39,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRESUNTO ROYALE</span>
+                </div>
+                <span class="item-preco">R$89,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PRESUNTO PARMA</span>
+                </div>
+                <span class="item-preco">R$139,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">BACON FATIADO</span>
+                </div>
+                <span class="item-preco">R$55,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PASTRAMI MORELLI</span>
+                </div>
+                <span class="item-preco">R$219,99</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">MORTADELA OURO</span>
+                </div>
+                <span class="item-preco">R$39,99</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">SALAME</span>
+                </div>
+                <span class="item-preco">R$79,99</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">TENDER DA CASA</span>
+                </div>
+                <span class="item-preco">R$110,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">LOMBO CANADENSE</span>
+                </div>
+                <span class="item-preco">R$69,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">QUEIJO DO MARAJÓ</span>
+                </div>
+                <span class="item-preco">R$88,00</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">PEITO DE PERU</span>
+                </div>
+                <span class="item-preco">R$69,90</span>
+              </li>
+
+              <li class="item">
+                <div class="item-texto">
+                  <span class="item-nome">QUEIJO CUIA</span>
+                </div>
+                <span class="item-preco">R$135,00</span>
+              </li>
+
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PEDIDO (formulário, coração da página) ===== -->
+  <section id="pedido" class="section--xl">
+    <div class="container--narrow">
+
+      <header class="pedido-head fade-up">
+        <h2 class="section-title">Monte seu <span class="text-accent">pedido</span></h2>
+        <hr class="rule-gold" aria-hidden="true">
+        <p class="section-lead">Preencha abaixo. A gente monta a mensagem no formato que a Sagres pede e abre seu
+          WhatsApp com tudo pronto.</p>
+      </header>
+
+      <div class="pedido-card fade-up">
+
+        <!-- Avisos ANTES de qualquer input: o mínimo de R$ 80,00 é o que mais gera
+             atrito no atendimento, então ele lê antes de começar a digitar. -->
+        <ul class="pedido-avisos">
+          <li class="pedido-aviso">
+            <svg class="pedido-aviso-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M14.6 9.4H10.9a1.8 1.8 0 000 3.6h2.2a1.8 1.8 0 010 3.6H9.4"></path>
+              <line x1="12" y1="6.6" x2="12" y2="9.4"></line>
+              <line x1="12" y1="16.6" x2="12" y2="19.4"></line>
+            </svg>
+            <span>Entregas com valor mínimo de <strong>R$ 80,00</strong> em produtos</span>
+          </li>
+          <li class="pedido-aviso">
+            <svg class="pedido-aviso-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"></circle>
+              <polyline points="12 7 12 12 15.5 14"></polyline>
+            </svg>
+            <span>Fechado das <strong>12:00 às 14:15</strong></span>
+          </li>
+        </ul>
+
+        <!-- novalidate: a validação é nossa, em português e sem alert(), que bloqueia a página. -->
+        <form id="form-pedido" class="pedido-form" novalidate>
+          <div class="campos">
+
+            <div class="campo campo--meio">
+              <label class="campo-rot" for="p-telefone">Telefone <span class="campo-req"
+                  aria-hidden="true">*</span></label>
+              <input class="campo-input" type="tel" id="p-telefone" name="telefone" inputmode="tel" autocomplete="tel"
+                required aria-describedby="hint-telefone err-p-telefone">
+              <p class="campo-hint" id="hint-telefone">Com DDD, para a Sagres confirmar o pedido com você.</p>
+              <p class="campo-erro" id="err-p-telefone" role="alert" hidden></p>
+            </div>
+
+            <div class="campo">
+              <label class="campo-rot" for="p-nome">Nome <span class="campo-req" aria-hidden="true">*</span></label>
+              <input class="campo-input" type="text" id="p-nome" name="nome" autocomplete="name" required
+                aria-describedby="err-p-nome">
+              <p class="campo-erro" id="err-p-nome" role="alert" hidden></p>
+            </div>
+
+            <!-- O par de radios vem ANTES do endereço na tela: assim o cliente entende
+                 por que os dois campos somem quando ele marca Retirada.
+                 A ordem na MENSAGEM continua sendo a da Sagres, montada no JS. -->
+            <fieldset class="campo campo--radio">
+              <legend class="campo-rot">Delivery ou retirada <span class="campo-req" aria-hidden="true">*</span>
+              </legend>
+              <div class="radio-grupo">
+                <label class="radio-op">
+                  <input type="radio" name="entrega" value="Delivery" checked>
+                  <span>Delivery</span>
+                </label>
+                <label class="radio-op">
+                  <input type="radio" name="entrega" value="Retirada">
+                  <span>Retirada</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="campos-delivery" id="campos-delivery">
+              <div class="campo">
+                <!-- Rótulo verbatim da Sagres: "perimetro" vai SEM acento, aqui e na mensagem. -->
+                <label class="campo-rot" for="p-endereco">Endereço completo com perimetro <span class="campo-req"
+                    aria-hidden="true">*</span></label>
+                <input class="campo-input" type="text" id="p-endereco" name="endereco" autocomplete="street-address"
+                  required aria-describedby="hint-endereco err-p-endereco">
+                <p class="campo-hint" id="hint-endereco">Rua, número, complemento e um ponto de referência.</p>
+                <p class="campo-erro" id="err-p-endereco" role="alert" hidden></p>
+              </div>
+
+              <div class="campo campo--meio">
+                <label class="campo-rot" for="p-bairro">Bairro <span class="campo-req" aria-hidden="true">*</span>
+                </label>
+                <input class="campo-input" type="text" id="p-bairro" name="bairro" required
+                  aria-describedby="err-p-bairro">
+                <p class="campo-erro" id="err-p-bairro" role="alert" hidden></p>
+              </div>
+            </div>
+
+            <!-- Texto livre de propósito: a entrega é por rota combinada, não horário exato.
+                 O cliente precisa poder escrever "sábado de manhã". -->
+            <div class="campo">
+              <label class="campo-rot" for="p-datahora">Data/hora da rota de entrega <span class="campo-req"
+                  aria-hidden="true">*</span></label>
+              <input class="campo-input" type="text" id="p-datahora" name="datahora" required
+                aria-describedby="hint-datahora err-p-datahora">
+              <p class="campo-hint" id="hint-datahora">A entrega é por rota, com data e hora combinadas com a Sagres.
+              </p>
+              <p class="campo-erro" id="err-p-datahora" role="alert" hidden></p>
+            </div>
+
+            <div class="campo">
+              <label class="campo-rot" for="p-pedido">Pedido <span class="campo-req" aria-hidden="true">*</span></label>
+              <textarea class="campo-input campo-area" id="p-pedido" name="pedido" rows="5" required
+                aria-describedby="hint-pedido err-p-pedido"></textarea>
+              <p class="campo-hint" id="hint-pedido">Ex.: 1 pizza tabuleiro PERNIL, 2 kg de MINI PASTEL QUEIJO, 1
+                COCA-COLA/ZERO</p>
+              <p class="campo-erro" id="err-p-pedido" role="alert" hidden></p>
+            </div>
+
+            <div class="campo">
+              <label class="campo-rot" for="p-pgto">Forma de pgto <span class="campo-req"
+                  aria-hidden="true">*</span></label>
+              <select class="campo-input campo-select" id="p-pgto" name="pgto" required aria-describedby="err-p-pgto">
+                <option value="" selected disabled>Selecione</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Pix">Pix</option>
+                <option value="Cartão">Cartão</option>
+              </select>
+              <p class="campo-erro" id="err-p-pgto" role="alert" hidden></p>
+            </div>
+
+          </div>
+
+          <div class="pedido-envio">
+            <button type="submit" class="btn btn--lg btn--wa btn--full">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z">
+                </path>
+              </svg>
+              Enviar pedido no WhatsApp
+            </button>
+            <p class="pedido-micro">Abre a conversa com a Sagres. Nada é enviado sem você confirmar.</p>
+
+            <!-- Saída de emergência quando o navegador bloqueia a janela nova.
+                 Sem isso o clique falharia em silêncio. -->
+            <p class="pedido-fallback" id="pedido-fallback" role="alert" hidden>
+              Seu navegador bloqueou a janela nova.
+              <a id="pedido-fallback-link" href="https://wa.me/5591984042359" target="_blank" rel="noopener">Toque aqui
+                para abrir o WhatsApp com o pedido pronto.</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEPOIMENTOS ===== -->
+  <!-- Só entra depoimento com nota 5 conferida na tela. Ver inviolável 4 no CLAUDE.md. -->
+  <section id="depoimentos" class="section--xl">
+    <div class="container">
+
+      <!-- Sprite da estrela. Uma definição, quinze usos: evita repetir o path
+           cinco vezes por cartão. O <symbol> não fixa fill/stroke, então a cor
+           vem do CSS por herança. -->
+      <svg class="svg-sprite" width="0" height="0" aria-hidden="true" focusable="false">
+        <symbol id="ico-estrela" viewBox="0 0 24 24">
+          <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+        </symbol>
+      </svg>
+
+      <header class="depo-head fade-up">
+        <h2 class="section-title">O que dizem os <span class="text-accent">2.189</span></h2>
+        <hr class="rule-gold" aria-hidden="true">
+      </header>
+
+      <div class="depo-grid fade-up">
+
+        <article class="depo-card">
+          <div class="depo-estrelas" role="img" aria-label="5 de 5 estrelas">
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+          </div>
+          <blockquote class="depo-quote">
+            <p>Pedi o clássico sanduíche de leitão com queijo de Marajó e MEU DEUS: ISSO É COISA DE OUTRO MUNDO DE TÃO
+              GOSTOSO!!! Vale super o hype 10/10</p>
+          </blockquote>
+          <footer class="depo-autor">
+            <cite class="depo-nome">Igor Gondin</cite>
+            <span class="depo-origem">Local Guide · Google</span>
+          </footer>
+        </article>
+
+        <article class="depo-card">
+          <div class="depo-estrelas" role="img" aria-label="5 de 5 estrelas">
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+          </div>
+          <blockquote class="depo-quote">
+            <p>Uma padaria com produtos deliciosos e com grande qualidade. Recomendo o folheado de queijo (pastel de
+              queijo), além da tradicional pizza que tem inúmeros sabores.</p>
+          </blockquote>
+          <footer class="depo-autor">
+            <cite class="depo-nome">Raphael Sampaio Vale</cite>
+            <span class="depo-origem">Local Guide · Google</span>
+          </footer>
+        </article>
+
+        <article class="depo-card">
+          <div class="depo-estrelas" role="img" aria-label="5 de 5 estrelas">
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+            <svg class="depo-estrela" width="20" height="20" aria-hidden="true" focusable="false">
+              <use href="#ico-estrela"></use>
+            </svg>
+          </div>
+          <blockquote class="depo-quote">
+            <p>O ambiente é muito agradável, o serviço é de primeira e o lanche e folhado estavam muito bons. Bem feitos
+              e saborosos.</p>
+          </blockquote>
+          <footer class="depo-autor">
+            <cite class="depo-nome">João Pedro A de Paulo</cite>
+            <span class="depo-origem">Local Guide · Google</span>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AVALIAR NO GOOGLE ===== -->
+  <!-- Um caminho só para todo mundo, sem pergunta de nota antes. Ver inviolável 6 no CLAUDE.md. -->
+  <section id="avaliar" class="section--xl section--cream">
+    <div class="container--narrow">
+      <div class="avaliar-inner fade-up">
+
+        <div class="avaliar-copy">
+          <h2 class="section-title">Já é cliente da <span class="text-accent">Sagres</span>?</h2>
+          <hr class="rule-gold" aria-hidden="true">
+          <p class="section-lead">Sua avaliação ajuda mais gente de Belém a encontrar a padaria.</p>
+          <a class="btn btn--lg avaliar-btn"
+            href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x92a48e7cec6d4887:0xb561f307297391a9!12e1"
+            target="_blank" rel="noopener">
+            <svg class="avaliar-btn-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+            </svg>
+            Avaliar no Google
+          </a>
+        </div>
+
+        <figure class="qr-card">
+          <img src="img/qr-avaliar.svg" width="456" height="456" loading="lazy" decoding="async"
+            alt="QR code que abre a caixa de avaliação da Panificadora Sagres no Google">
+          <figcaption>Aponte a câmera do celular. A Sagres pode imprimir este código e deixar no balcão e nas mesas.
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE =====
+       As duas falas são da própria Sagres (post do prêmio), por isso entram
+       como <blockquote> dentro de um <figure> com <figcaption> de autoria.
+       Só o fecho é copy nossa, e ele fica fora das aspas de propósito. -->
+  <section id="sobre" class="section--xl">
+    <div class="container--narrow">
+      <div class="sobre-inner fade-up">
+
+        <h2 class="section-title">Desde <span class="text-accent">1985</span> na Rua dos Caripunas</h2>
+        <hr class="rule-gold" aria-hidden="true">
+
+        <figure class="sobre-falas">
+          <blockquote class="sobre-fala">
+            <p>Quem vê o pão quentinho chegando na mesa talvez não imagine quantas pessoas trabalham desde a madrugada
+              para que isso aconteça.</p>
+          </blockquote>
+          <blockquote class="sobre-fala">
+            <p>A nossa missão continua a mesma desde 1985: levar o pão de cada dia até a sua casa.</p>
+          </blockquote>
+          <figcaption class="sobre-autoria">Panificadora Sagres</figcaption>
+        </figure>
+
+        <p class="sobre-fecho">Sete vezes eleita a melhor padaria de Belém. A conta que importa continua sendo a do pão
+          de amanhã.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCALIZAÇÃO E HORÁRIO ===== -->
+  <section id="local" class="section--xl">
+    <div class="container">
+
+      <div class="local-head fade-up">
+        <h2 class="section-title">Endereço e <span class="text-accent">horário</span></h2>
+        <hr class="rule-gold" aria-hidden="true">
+      </div>
+
+      <div class="local-grid fade-up">
+
+        <div class="local-info">
+
+          <!-- Endereço -->
+          <div class="local-bloco">
+            <h3 class="local-tit">
+              <svg class="local-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Onde estamos
+            </h3>
+            <address class="local-endereco">
+              R. dos Caripunas, 1717 · Batista Campos<br>
+              Belém, PA · 66033-442
+            </address>
+            <a class="btn btn--ghost local-rota"
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.46243,-48.4874101" target="_blank"
+              rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              Como chegar
+            </a>
+          </div>
+
+          <!-- Horário -->
+          <!-- [PENDENTE] abertura 06:00 e fechamento 20:30 vêm do Google e ainda precisam de confirmação com a Sagres; o intervalo 12:00 às 14:15 veio da mensagem oficial deles -->
+          <div class="local-bloco">
+            <h3 class="local-tit">
+              <svg class="local-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <polyline points="12 7 12 12 15.5 14"></polyline>
+              </svg>
+              Horário
+            </h3>
+            <dl class="local-horario">
+              <div class="local-horario-linha">
+                <dt>Segunda a sexta</dt>
+                <dd>06:00 às 12:00 e 14:15 às 20:30</dd>
+              </div>
+              <div class="local-horario-linha">
+                <dt>Sábado</dt>
+                <dd>06:00 às 20:30</dd>
+              </div>
+              <div class="local-horario-linha">
+                <dt>Domingo</dt>
+                <dd>fechado</dd>
+              </div>
+            </dl>
+            <!-- Intervalo em destaque: é a informação que mais gera pedido perdido -->
+            <p class="local-aviso">
+              <svg class="local-aviso-ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <line x1="12" y1="8" x2="12" y2="12.5"></line>
+                <line x1="12" y1="16" x2="12" y2="16"></line>
+              </svg>
+              <span><strong>Fechado das 12:00 às 14:15.</strong> De segunda a sexta a casa para no almoço e volta a
+                atender às 14:15.</span>
+            </p>
+          </div>
+
+          <!-- Contato -->
+          <div class="local-bloco">
+            <h3 class="local-tit">
+              <svg class="local-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z">
+                </path>
+              </svg>
+              Contato
+            </h3>
+            <ul class="local-contatos">
+              <li>
+                <a href="https://wa.me/5591984042359" target="_blank" rel="noopener">
+                  <svg class="local-ico local-ico--wa" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
+                    aria-hidden="true" focusable="false">
+                    <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.4-.2-2.6.7.7-2.5-.3-.4A8 8 0 0 1 12 4zm-3.3 4.4c-.2 0-.4 0-.6.2-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.2.2 1.6 2.6 4 3.5 1.9.8 2.3.6 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5l.1-.5-.7-1.7c-.2-.4-.4-.4-.5-.4z">
+                    </path>
+                  </svg>
+                  <span class="local-contato-rot">WhatsApp</span>
+                  <span class="local-contato-val">(91) 98404-2359</span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:+559132239123">
+                  <svg class="local-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                    focusable="false">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z">
+                    </path>
+                  </svg>
+                  <span class="local-contato-rot">Telefone</span>
+                  <span class="local-contato-val">(91) 3223-9123</span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:+559132232110">
+                  <svg class="local-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                    focusable="false">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z">
+                    </path>
+                  </svg>
+                  <span class="local-contato-rot">Telefone</span>
+                  <span class="local-contato-val">(91) 3223-2110</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/sagresbelem/" target="_blank" rel="noopener">
+                  <svg class="local-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                    focusable="false">
+                    <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                  </svg>
+                  <span class="local-contato-rot">Instagram</span>
+                  <span class="local-contato-val">@sagresbelem</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="local-visual">
+          <div class="local-mapa">
+            <iframe src="https://maps.google.com/maps?q=-1.46243,-48.4874101&amp;z=17&amp;output=embed"
+              title="Mapa com a localização da Panificadora Sagres na R. dos Caripunas, 1717, Batista Campos, Belém"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <!-- [PENDENTE] substituir por foto da fachada com o letreiro da Sagres visível -->
+          <figure class="local-foto">
+            <img src="img/fachada.jpg"
+              alt="Prédio da Panificadora Sagres na Rua dos Caripunas, com as vitrines do térreo voltadas para a calçada"
+              width="622" height="632" loading="lazy" decoding="async">
+            <figcaption>A casa na Rua dos Caripunas</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ =====
+       Mesmo acordeão do cardápio (.cbloco em <details>/<summary> nativo):
+       sem JS novo, vários blocos podem ficar abertos ao mesmo tempo e a
+       resposta vem no HTML, indexável. Fundo branco entre o creme de #local
+       e o bordô de #cta-final. -->
+  <section id="faq" class="section--xl">
+    <div class="container--narrow">
+
+      <header class="faq-head fade-up">
+        <h2 class="section-title">Perguntas <span class="text-accent">frequentes</span></h2>
+        <hr class="rule-gold" aria-hidden="true">
+      </header>
+
+      <div class="faq-lista fade-up">
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Dá para encomendar na Sagres ou é só balcão?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>Encomenda é o forte da casa. Pizza de tabuleiro, sanduíche de metro, salgados, doces, pães, bolos e
+              frios por quilo, com entrega por rota combinada. O cardápio completo com preço está nesta página.</p>
+          </div>
+        </details>
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Qual o pedido mínimo para entrega?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>R$ 80,00 em produtos. Abaixo disso, a retirada na loja continua valendo.</p>
+          </div>
+        </details>
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Como faço o pedido?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>Pelo formulário desta página. Você preenche os dados, ele monta a mensagem no padrão que a Sagres usa e
+              abre o WhatsApp (91) 98404-2359 com tudo pronto. Nada é enviado sem você confirmar.</p>
+          </div>
+        </details>
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Como funciona a entrega?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>A entrega é por rota, com data e hora combinadas com a Sagres. Não é entrega imediata. Por isso o
+              formulário pergunta quando você quer receber.</p>
+          </div>
+        </details>
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Quais são as formas de pagamento?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>Dinheiro, Pix e cartão.</p>
+          </div>
+        </details>
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Qual o horário de funcionamento?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>Segunda a sexta, das 06:00 às 12:00 e das 14:15 às 20:30. Sábado, das 06:00 às 20:30. Domingo fechado.
+            </p>
+          </div>
+        </details>
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Onde fica a Panificadora Sagres?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>R. dos Caripunas, 1717, Batista Campos, Belém, PA, CEP 66033-442.</p>
+          </div>
+        </details>
+
+        <details class="cbloco faq-item">
+          <summary class="cbloco-sum">
+            <h3 class="cbloco-nome faq-pergunta">Os preços do cardápio são fixos?</h3>
+            <span class="cbloco-meta">
+              <svg class="cbloco-chevron" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true" focusable="false">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="cbloco-corpo faq-resposta">
+            <p>Os preços por quilo são passíveis de reajuste, conforme aviso da própria Sagres. Pizzas, sanduíches de
+              metro e bebidas seguem a tabela desta página.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section id="cta-final" class="section--xl">
+    <div class="container--narrow">
+      <h2 class="cta-final-headline">Seu pedido leva um minuto para montar.</h2>
+      <a href="#pedido" class="btn btn--lg">Montar meu pedido</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div class="footer-col footer-col--marca">
+          <img src="img/logo-sagres.png" alt="" width="256" height="256" class="footer-logo" loading="lazy"
+            decoding="async" aria-hidden="true">
+          <p class="footer-brand">Panificadora Sagres</p>
+          <address class="footer-endereco">
+            R. dos Caripunas, 1717 · Batista Campos<br>
+            Belém, PA · 66033-442
+          </address>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-tit">Contato</h3>
+          <ul class="footer-lista">
+            <li><a href="https://wa.me/5591984042359" target="_blank" rel="noopener">WhatsApp (91) 98404-2359</a></li>
+            <li><a href="tel:+559132239123">(91) 3223-9123</a></li>
+            <li><a href="tel:+559132232110">(91) 3223-2110</a></li>
+            <li><a href="https://www.instagram.com/sagresbelem/" target="_blank" rel="noopener">@sagresbelem</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-tit">Horário</h3>
+          <ul class="footer-lista footer-lista--texto">
+            <li>Seg a sex: 06:00 às 12:00 e 14:15 às 20:30</li>
+            <li>Sáb: 06:00 às 20:30</li>
+            <li>Dom: fechado</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="footer-copy">© 2026 Panificadora Sagres</p>
+
+    </div>
+  </footer>
+
+  <!-- ===== STICKY CTA (mobile) ===== -->
+  <div class="sticky-bar" role="complementary" aria-label="Chamada para ação fixa">
+    <div class="sticky-bar-text"><strong>Panificadora Sagres</strong>Cardápio e encomenda</div>
+    <a href="#pedido" class="btn">Montar pedido</a>
+  </div>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Fade-up on scroll
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-up').forEach((el) => obs.observe(el));
+    })();
+
+    // Sticky bar após scroll
+    (function () {
+      const bar = document.querySelector('.sticky-bar');
+      if (!bar) return;
+      let shown = false;
+      const onScroll = () => {
+        if (!shown && window.scrollY > 400) { bar.classList.add('show'); shown = true; window.removeEventListener('scroll', onScroll); }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // Smooth scroll para âncoras
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', function (e) {
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+
+  <!-- ===== FORMULÁRIO DE PEDIDO → WhatsApp =====
+       PRIVACIDADE: este bloco não tem backend, não faz fetch, não grava nada em
+       localStorage, sessionStorage nem cookie, e não carrega analytics. O que o
+       cliente digita vive só na memória desta aba e sai daqui por um caminho só:
+       o link do WhatsApp que ele mesmo confirma. Fechou a aba, sumiu.
+       Nada de alert()/confirm()/prompt(): trava a página e o cliente abandona. -->
+  <script>
+    (function () {
+      'use strict';
+
+      const form = document.getElementById('form-pedido');
+      if (!form) return;
+
+      const WA_BASE = 'https://wa.me/5591984042359?text=';
+      const blocoDelivery = document.getElementById('campos-delivery');
+      const fallback = document.getElementById('pedido-fallback');
+      const fallbackLink = document.getElementById('pedido-fallback-link');
+
+      // Ordem, rótulos e mensagens de erro.
+      // A ORDEM DESTA LISTA É A ORDEM DA MENSAGEM, e ela é a da Sagres,
+      // independente de como os campos estejam dispostos na tela.
+      // Os rótulos são verbatim do padrão deles: "perimetro" sem acento,
+      // "pgto" abreviado, "Data/hora" com barra. Não normalizar.
+      const CAMPOS = [
+        { id: 'p-telefone', rotulo: 'Telefone', erro: 'Informe seu telefone com DDD.' },
+        { id: 'p-nome', rotulo: 'Nome', erro: 'Informe seu nome.' },
+        { id: 'p-endereco', rotulo: 'Endereço completo com perimetro', erro: 'Informe o endereço completo.', soDelivery: true },
+        { id: 'p-bairro', rotulo: 'Bairro', erro: 'Informe o bairro.', soDelivery: true },
+        { id: 'p-datahora', rotulo: 'Data/hora da rota de entrega', erro: 'Diga quando você quer receber. Pode ser algo como sábado de manhã.' },
+        { id: 'p-pedido', rotulo: 'Pedido', erro: 'Escreva o que você quer encomendar.' },
+        { id: 'p-pgto', rotulo: 'Forma de pgto', erro: 'Diga como você pretende pagar.' }
+      ];
+
+      const el = (id) => document.getElementById(id);
+      const erroEl = (id) => document.getElementById('err-' + id);
+      const valor = (id) => (el(id).value || '').trim();
+      const entregaEscolhida = () => (form.querySelector('input[name="entrega"]:checked') || {}).value || 'Delivery';
+      const eDelivery = () => entregaEscolhida() === 'Delivery';
+
+      function limparErro(id) {
+        const campo = el(id), aviso = erroEl(id);
+        campo.removeAttribute('aria-invalid');
+        aviso.textContent = '';
+        aviso.hidden = true;
+      }
+
+      function marcarErro(id, texto) {
+        const campo = el(id), aviso = erroEl(id);
+        campo.setAttribute('aria-invalid', 'true');
+        aviso.textContent = texto;
+        aviso.hidden = false;
+      }
+
+      // Retirada: endereço e bairro saem da tela, perdem o required e some do
+      // alcance do teclado (o atributo hidden já tira do fluxo e da árvore de
+      // acessibilidade; aria-hidden fica explícito por clareza).
+      function aplicarModoEntrega() {
+        const delivery = eDelivery();
+        blocoDelivery.hidden = !delivery;
+        blocoDelivery.setAttribute('aria-hidden', String(!delivery));
+        CAMPOS.filter((c) => c.soDelivery).forEach((c) => {
+          const campo = el(c.id);
+          if (delivery) {
+            campo.setAttribute('required', '');
+          } else {
+            campo.removeAttribute('required');
+            limparErro(c.id);
+          }
+        });
+      }
+
+      form.querySelectorAll('input[name="entrega"]').forEach((r) => {
+        r.addEventListener('change', aplicarModoEntrega);
+      });
+      aplicarModoEntrega();
+
+      // Erro some assim que o cliente começa a corrigir
+      CAMPOS.forEach((c) => {
+        el(c.id).addEventListener('input', () => {
+          if (el(c.id).hasAttribute('aria-invalid') && valor(c.id) !== '') limparErro(c.id);
+        });
+      });
+
+      function ativos() {
+        const delivery = eDelivery();
+        return CAMPOS.filter((c) => !c.soDelivery || delivery);
+      }
+
+      function validar() {
+        let primeiroInvalido = null;
+        ativos().forEach((c) => {
+          if (valor(c.id) === '') {
+            marcarErro(c.id, c.erro);
+            if (!primeiroInvalido) primeiroInvalido = el(c.id);
+          } else {
+            limparErro(c.id);
+          }
+        });
+        return primeiroInvalido;
+      }
+
+      // Reproduz o padrão da Sagres campo por campo. Na retirada, as linhas de
+      // endereço e bairro não vão vazias: elas simplesmente não existem.
+      function montarMensagem() {
+        const linhas = ['Padaria Sagres'];
+        ativos().forEach((c) => { linhas.push('*' + c.rotulo + ':* ' + valor(c.id)); });
+        linhas.push('*Delivery ou retirada:* ' + entregaEscolhida());
+        // Linha em branco separa o pedido do aviso de confirmação
+        linhas.push('', '_*Aguarde a confirmação do seu pedido.*_');
+        return linhas.join('\n');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        fallback.hidden = true;
+
+        const invalido = validar();
+        if (invalido) {
+          invalido.focus({ preventScroll: true });
+          const suave = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+          invalido.scrollIntoView({ behavior: suave, block: 'center' });
+          return;
+        }
+
+        const url = WA_BASE + encodeURIComponent(montarMensagem());
+        fallbackLink.href = url;
+
+        const janela = window.open(url, '_blank');
+        if (janela) {
+          janela.opener = null;
+        } else {
+          // Popup bloqueado: mostra o link em vez de falhar em silêncio.
+          fallback.hidden = false;
+          fallbackLink.focus();
+        }
+      });
+    })();
+  </script>
+  <!-- ===== DADOS ESTRUTURADOS PESADOS =====
+       Ficam no fim do body de propósito: são para crawler e motor de resposta
+       de IA, não afetam a renderização e não podem atrasar o parse do <head>.
+       O Menu é gerado de cardapio.md por script; não editar à mão. -->
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Menu","@id":"#menu","name":"Cardápio de encomenda · Panificadora Sagres","inLanguage":"pt-BR","hasMenuSection":[{"@type":"MenuSection","name":"PIZZAS","hasMenuItem":[{"@type":"MenuItem","name":"MISTA","description":"molho, presunto, mussarela e orégano","offers":[{"@type":"Offer","price":"144","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"71","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"62","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"MISTA C/ CALABRESA","description":"molho, presunto, mussarela, calabresa e orégano","offers":[{"@type":"Offer","price":"144","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"71","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"62","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"CALABRESA","description":"molho, presunto, mussarela, calabresa e orégano","offers":[{"@type":"Offer","price":"144","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"71","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"62","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"MUSSARELA","description":"molho, mussarela e orégano","offers":[{"@type":"Offer","price":"144","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"71","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"62","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"MARGUERITA","description":"molho, mussarela, manjericão, tomate e orégano","offers":[{"@type":"Offer","price":"144","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"71","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"62","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"PERNIL","description":"molho, pernil tradicional Sagres, mussarela e orégano","offers":[{"@type":"Offer","price":"148","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"75","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"65","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"PEITO DE PERU","description":"molho, peito de peru fatiado, mussarela e orégano","offers":[{"@type":"Offer","price":"148","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"75","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"65","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"PORTUGUESA","description":"molho, presunto, mussarela, calabresa, ovo, azeitona, cebola e orégano","offers":[{"@type":"Offer","price":"148","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"75","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"65","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"ATUM","description":"molho, pasta de atum, queijo mussarela e orégano","offers":[{"@type":"Offer","price":"148","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"75","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"65","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"SALAME","description":"molho, salame fatiado, mussarela e orégano","offers":[{"@type":"Offer","price":"148","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"75","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"65","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"4 QUEIJOS","description":"molho, queijos mussarela, prato, cuia, Marajó e orégano","offers":[{"@type":"Offer","price":"165","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"88","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"74","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"QUEIJO CUIA","description":"molho, mussarela, queijo cuia e orégano","offers":[{"@type":"Offer","price":"168","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"88","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"74","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"TENDER","description":"molho, tender fatiado, mussarela e orégano","offers":[{"@type":"Offer","price":"157","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"79","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"65","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"BACALHAU","description":"molho, bacalhau refogado Sagres, mussarela, azeitonas e orégano","offers":[{"@type":"Offer","price":"195","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"99","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"89","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"FILÉ","description":"molho, cubos de filé, mussarela e orégano","offers":[{"@type":"Offer","price":"198","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"100","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"89","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"FILÉ COM CUIA","description":"molho, cubos de filé, mussarela, queijo cuia e orégano","offers":[{"@type":"Offer","price":"215","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"115","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"95","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"FILÉ COM BACON","description":"molho, cubos de filé, bacon, mussarela e orégano","offers":[{"@type":"Offer","price":"200","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"105","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"89","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"BACON","description":"molho, cubos de filé, bacon, mussarela e orégano","offers":[{"@type":"Offer","price":"148","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"75","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"65","priceCurrency":"BRL","name":"Média"}]},{"@type":"MenuItem","name":"COP30","description":"molho, pernil tradicional Sagres, creme de queijo do Marajó, manjericão regional e azeite portugués","offers":[{"@type":"Offer","price":"199","priceCurrency":"BRL","name":"Tabuleiro"},{"@type":"Offer","price":"108","priceCurrency":"BRL","name":"Gigante"},{"@type":"Offer","price":"90","priceCurrency":"BRL","name":"Média"}]}]},{"@type":"MenuSection","name":"SANDUÍCHES METRO","hasMenuItem":[{"@type":"MenuItem","name":"QUEIJO PRATO","description":"pão e queijo prato","offers":{"@type":"Offer","price":"88","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"MISTO","description":"pão, queijo prato e presunto","offers":{"@type":"Offer","price":"93","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"SALAME","description":"pão, queijo prato e salame","offers":{"@type":"Offer","price":"140","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"SALAME MISTO","description":"pão, queijo prato, presunto e salame","offers":{"@type":"Offer","price":"150","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"SALAME C/ QUEIJO CUIA","description":"pão, salame e queijo cuia","offers":{"@type":"Offer","price":"180","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PEITO DE PERU C/ QUEIJO PRATO","description":"pão, peito de peru fatiado e queijo prato","offers":{"@type":"Offer","price":"125","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PRESUNTO COZIDO","description":"pão e presunto cozido","offers":{"@type":"Offer","price":"75","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PRESUNTO PARMA COM QUEIJO","description":"pão e presunto parma com queijo","offers":{"@type":"Offer","price":"195.00","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PEITO DE PERU C/ QUEIJO CUIA","description":"pão, peito de peru fatiado e queijo cuia","offers":{"@type":"Offer","price":"150","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PERNIL C/ QUEIJO CUIA","description":"pão, pernil especial da Sagres e queijo cuia","offers":{"@type":"Offer","price":"210","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PERNIL SIMPLES","description":"pão e pernil especial da Sagres","offers":{"@type":"Offer","price":"138","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PERNIL C/ QUEIJO PRATO","description":"pão, pernil especial da Sagres e queijo prato","offers":{"@type":"Offer","price":"143","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PERNIL C/ QUEIJO DO MARAJÓ","description":"pão, pernil especial da Sagres e queijo do Marajó","offers":{"@type":"Offer","price":"210","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"PERNIL C/ PEITO DE PERU","description":"pão, pernil especial da Sagres e peito de peru fatiado","offers":{"@type":"Offer","price":"145","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"FILÉ","description":"pão e filé","offers":{"@type":"Offer","price":"155","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"FILÉ C/ QUEIJO PRATO","description":"pão, filé e queijo prato","offers":{"@type":"Offer","price":"170","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"FILÉ C/ QUEIJO CUIA","description":"pão, filé e queijo cuia","offers":{"@type":"Offer","price":"210","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"MISTO SIMPLES C/ PATÊ DO REINO","description":"pão, queijo prato, presunto e patê do reino","offers":{"@type":"Offer","price":"155","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"QUEIJO CUIA C/ SALADA","description":"pão, queijo cuia, alface, cebola e tomate","offers":{"@type":"Offer","price":"183","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"BACALHAU","description":"pão e bacalhau especial da Sagres","offers":{"@type":"Offer","price":"200","priceCurrency":"BRL"}}]},{"@type":"MenuSection","name":"BEBIDAS (2L)","hasMenuItem":[{"@type":"MenuItem","name":"COCA-COLA/ZERO","offers":{"@type":"Offer","price":"14.90","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"FANTA UVA/LARANJA","offers":{"@type":"Offer","price":"14.90","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"GUARANÁ ANTÁRTICA/ZERO","offers":{"@type":"Offer","price":"10.99","priceCurrency":"BRL"}},{"@type":"MenuItem","name":"GUARANÁ GAROTO","offers":{"@type":"Offer","price":"8.50","priceCurrency":"BRL"}}]},{"@type":"MenuSection","name":"DOCES","hasMenuItem":[{"@type":"MenuItem","name":"BISCOITO DA CASA","offers":{"@type":"Offer","price":"45.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MONTEIRO LOPES","offers":{"@type":"Offer","price":"59.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"BOLO MACAXEIRA FAT.","offers":{"@type":"Offer","price":"6.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"CROISSANT CUPUAÇU","offers":{"@type":"Offer","price":"95.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI PAST. CUPUAÇÚ","offers":{"@type":"Offer","price":"85.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"ROSQ. TAPIOCA","offers":{"@type":"Offer","price":"85.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"QUINDIM","offers":{"@type":"Offer","price":"5.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"MINI ORELHA","offers":{"@type":"Offer","price":"95.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"SONHO PEQUENO","offers":{"@type":"Offer","price":"3.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"SONHO GRANDE","offers":{"@type":"Offer","price":"6.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"CARACOL PEQUENO","offers":{"@type":"Offer","price":"6.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"CARACOL GRANDE","offers":{"@type":"Offer","price":"8.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"RABANADA","offers":{"@type":"Offer","price":"6.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"MINI RABANADA","offers":{"@type":"Offer","price":"2.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"BISCOITO PACIÊNCIA","offers":{"@type":"Offer","price":"45.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"DELICINHA PÃO DE ROSA","offers":{"@type":"Offer","price":"2.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"BANANINHA DE COCO","offers":{"@type":"Offer","price":"1.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}}]},{"@type":"MenuSection","name":"BOLOS/TORTAS INTEIROS","hasMenuItem":[{"@type":"MenuItem","name":"PUDIM","offers":{"@type":"Offer","price":"42.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"TORTA LIMÃO","offers":{"@type":"Offer","price":"42.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"BOLO DE MACAXEIRA","offers":{"@type":"Offer","price":"190.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"inteiro"}}},{"@type":"MenuItem","name":"BOLO CHOCOLATE","offers":{"@type":"Offer","price":"42.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"BOLO ABACAXI","offers":{"@type":"Offer","price":"42.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"ROCAMBOLE","offers":{"@type":"Offer","price":"49.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"BOLO DA CASA PEQ","offers":{"@type":"Offer","price":"28.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PAO DE LÓ CUPUAÇÚ","offers":{"@type":"Offer","price":"42.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}}]},{"@type":"MenuSection","name":"PÃES","hasMenuItem":[{"@type":"MenuItem","name":"CARECA/FRANCÊS","offers":{"@type":"Offer","price":"18.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MASSA FINA","offers":{"@type":"Offer","price":"18.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"HAMBÚRGUER","offers":{"@type":"Offer","price":"18.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"HOT-DOG","offers":{"@type":"Offer","price":"19.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"CHÁ","offers":{"@type":"Offer","price":"19.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MILHO","offers":{"@type":"Offer","price":"18.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"CIABATTA","offers":{"@type":"Offer","price":"25.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"ITALIANO","offers":{"@type":"Offer","price":"25.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"BATATA REDONDO","offers":{"@type":"Offer","price":"31.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"FORMA","offers":{"@type":"Offer","price":"24.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}}]},{"@type":"MenuSection","name":"SALGADOS","hasMenuItem":[{"@type":"MenuItem","name":"MINI PASTEL QUEIJO","offers":{"@type":"Offer","price":"85.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PÃO DE QUEIJO","offers":{"@type":"Offer","price":"59.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"ITALIANINHO","offers":{"@type":"Offer","price":"69.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI CROISSANT","offers":{"@type":"Offer","price":"95.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"ENROLADO MISTO","offers":{"@type":"Offer","price":"75.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"COXINHA/KIBE","offers":{"@type":"Offer","price":"60.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI ESFIRRA","offers":{"@type":"Offer","price":"90.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI HOT-DOG","offers":{"@type":"Offer","price":"85.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"DELÍCIA PARMESÃO","offers":{"@type":"Offer","price":"70.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"DELÍCIA DO REINO","offers":{"@type":"Offer","price":"99.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI SAND. LEITÃO","offers":{"@type":"Offer","price":"140.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI HAMBURGUER","offers":{"@type":"Offer","price":"110.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI MISTO P. FORMA","offers":{"@type":"Offer","price":"120.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MINI PIZZA","offers":{"@type":"Offer","price":"135.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"EMPADÃO BACALHAU","offers":{"@type":"Offer","price":"135.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"TORTA AMERICANA","offers":{"@type":"Offer","price":"6.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}},{"@type":"MenuItem","name":"CROISSANT S RECHEIO","offers":{"@type":"Offer","price":"6.99","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"unidade"}}}]},{"@type":"MenuSection","name":"FRIOS","hasMenuItem":[{"@type":"MenuItem","name":"PRATO FRIMESA","offers":{"@type":"Offer","price":"62.50","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PRATO CRIOULO","offers":{"@type":"Offer","price":"89.90","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MUSSARELA","offers":{"@type":"Offer","price":"59.99","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PARMESÃO","offers":{"@type":"Offer","price":"115.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"GOUDA","offers":{"@type":"Offer","price":"148.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PRIMADONNA","offers":{"@type":"Offer","price":"249.90","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PRESUNTO MAGRO","offers":{"@type":"Offer","price":"39.90","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PRESUNTO ROYALE","offers":{"@type":"Offer","price":"89.90","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PRESUNTO PARMA","offers":{"@type":"Offer","price":"139.90","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"BACON FATIADO","offers":{"@type":"Offer","price":"55.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PASTRAMI MORELLI","offers":{"@type":"Offer","price":"219.99","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"MORTADELA OURO","offers":{"@type":"Offer","price":"39.99","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"SALAME","offers":{"@type":"Offer","price":"79.99","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"TENDER DA CASA","offers":{"@type":"Offer","price":"110.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"LOMBO CANADENSE","offers":{"@type":"Offer","price":"69.90","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"QUEIJO DO MARAJÓ","offers":{"@type":"Offer","price":"88.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"PEITO DE PERU","offers":{"@type":"Offer","price":"69.90","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}},{"@type":"MenuItem","name":"QUEIJO CUIA","offers":{"@type":"Offer","price":"135.00","priceCurrency":"BRL","eligibleQuantity":{"@type":"QuantitativeValue","unitText":"kg"}}}]}]}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "pt-BR",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Dá para encomendar na Sagres ou é só balcão?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Encomenda é o forte da casa. Pizza de tabuleiro, sanduíche de metro, salgados, doces, pães, bolos e frios por quilo, com entrega por rota combinada. O cardápio completo com preço está nesta página."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual o pedido mínimo para entrega?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "R$ 80,00 em produtos. Abaixo disso, a retirada na loja continua valendo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como faço o pedido?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pelo formulário desta página. Você preenche os dados, ele monta a mensagem no padrão que a Sagres usa e abre o WhatsApp (91) 98404-2359 com tudo pronto. Nada é enviado sem você confirmar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona a entrega?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A entrega é por rota, com data e hora combinadas com a Sagres. Não é entrega imediata. Por isso o formulário pergunta quando você quer receber."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quais são as formas de pagamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dinheiro, Pix e cartão."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual o horário de funcionamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Segunda a sexta, das 06:00 às 12:00 e das 14:15 às 20:30. Sábado, das 06:00 às 20:30. Domingo fechado."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Onde fica a Panificadora Sagres?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "R. dos Caripunas, 1717, Batista Campos, Belém, PA, CEP 66033-442."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Os preços do cardápio são fixos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Os preços por quilo são passíveis de reajuste, conforme aviso da própria Sagres. Pizzas, sanduíches de metro e bebidas seguem a tabela desta página."
+        }
+      }
+    ]
+  }
+  </script>
+
+</body>
+
+</html>
